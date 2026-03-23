@@ -41,22 +41,13 @@
       "relationships": ["AGENTS"]
     },
     {
-      "id": "domain-resource-map",
-      "name": "resource-map",
+      "id": "domain-readme-finalize",
+      "name": "readme-finalize",
       "type": "Domain",
-      "path": ".planning/",
-      "description": "RESOURCE-MAP framework: manage project resources (人、财、物、信息). Includes jm-forge-resource skill and auto-discovery.",
-      "tags": ["resource", "resource-map", "auto-discovery"],
-      "relationships": ["domain-task-management"]
-    },
-    {
-      "id": "domain-resource-auto-discovery",
-      "name": "resource-auto-discovery",
-      "type": "Domain",
-      "path": ".planning/resource-auto-discovery/",
-      "description": "Auto-discover and register resources from existing project files.",
-      "tags": ["resource", "auto-discovery", "scan"],
-      "relationships": ["domain-resource-map"]
+      "path": ".planning/readme-finalize/",
+      "description": "Finalize README before MVP publish: clarify Roadmap, Development Environment, Theoretical Foundations links.",
+      "tags": ["documentation", "readme", "mvp"],
+      "relationships": ["readme-redesign"]
     }
   ]
 }

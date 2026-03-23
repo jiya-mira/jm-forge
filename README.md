@@ -72,24 +72,13 @@ PROJECT-MAP/
 
 ### RESOURCE-MAP / 资源地图
 
-Beyond code structure, projects often involve **external resources**: servers, equipment, organizations, people, financial assets. `RESOURCE-MAP/` captures these:
+Beyond code structure, projects often involve **external resources**: servers, equipment, organizations, people, financial assets. `RESOURCE-MAP/` captures these as a project-local file (gitignored — not part of the framework distribution).
 
-除代码结构外，项目通常涉及**外部资源**：服务器、设备、组织、人员、财务资产。`RESOURCE-MAP/` 捕获这些信息：
+除代码结构外，项目通常涉及**外部资源**：服务器、设备、组织、人员、财务资产。`RESOURCE-MAP/` 将这些作为项目本地文件捕获（gitignored — 不属于框架发布的一部分）。
 
-```json
-{
-  "resources": [
-    {
-      "id": "prod-server",
-      "category": "infrastructure",
-      "name": "Production Server / 生产服务器",
-      "controllable": true,
-      "safety": { "level": "high-caution" },
-      "attributes": { "host": "prod.example.com", "services": ["nginx", "redis"] }
-    }
-  ]
-}
-```
+See `jm-forge:resource` skill for management commands.
+
+管理命令见 `jm-forge:resource` skill。
 
 ### Self-Bootstrapping / 自举
 
@@ -103,12 +92,12 @@ The framework **bootstraps itself**: every skill is documented in `SKILL.md`, an
 
 | Theory / 理论 | Source / 来源 | Application / 应用 |
 |--------------|--------------|------------------|
-| Design Science / 设计科学 | Herbert A. Simon, *Sciences of the Artificial* | Project structure as artificial artifact / 项目结构作为人工制品 |
-| Problem Solving as Search / 问题求解即搜索 | Newell & Simon, *Human Problem Solving* | Task decomposition as search / 任务分解为搜索 |
-| Reflection-in-Action / 行动中反思 | Donald Schön, *The Reflective Practitioner* | Discuss before acting / 行动前讨论 |
-| Iterative Development / 迭代开发 | Kent Beck | Incremental improvement / 增量改进 |
-| OODA Loop | John Boyd | Observe-Orient-Decide-Act cycle / 观察-定向-决策-行动循环 |
-| Agent Architecture / Agent 架构 | Russell & Norvig, *AI: A Modern Approach* | Agent-environment interaction / Agent-环境交互 |
+| Design Science / 设计科学 | [Simon, *Sciences of the Artificial*](https://en.wikipedia.org/wiki/Design_science) | Project structure as artificial artifact / 项目结构作为人工制品 |
+| Problem Solving as Search / 问题求解即搜索 | [Newell & Simon, *Human Problem Solving*](https://en.wikipedia.org/wiki/Allen_Newell) | Task decomposition as search / 任务分解为搜索 |
+| Reflection-in-Action / 行动中反思 | [Schön, *The Reflective Practitioner*](https://en.wikipedia.org/wiki/Donald_Sch%C3%B6n) | Discuss before acting / 行动前讨论 |
+| Iterative Development / 迭代开发 | [Kent Beck](https://en.wikipedia.org/wiki/Iterative_and_incremental_development) | Incremental improvement / 增量改进 |
+| OODA Loop | [Boyd, *OODA Loop*](https://en.wikipedia.org/wiki/OODA_loop) | Observe-Orient-Decide-Act cycle / 观察-定向-决策-行动循环 |
+| Agent Architecture / Agent 架构 | [Russell & Norvig, *AI: A Modern Approach*](https://en.wikipedia.org/wiki/Intelligent_agent) | Agent-environment interaction / Agent-环境交互 |
 
 ---
 
@@ -131,15 +120,12 @@ graph LR
 
 ## Development Environment / 开发环境
 
-Currently developed and tested with:
-- **Claude Code** + **MiniMAX-M2.7** — Primary development and testing platform / 主要开发和测试平台
-- **uv** — Python package manager / Python 包管理器
-- **git** — Version control / 版本控制
+**Agent:** Claude Code + MiniMAX-M2.7
+**Tools:** uv, git
 
-当前开发和测试环境：
-- **Claude Code** + **MiniMAX-M2.7** — 主要开发和测试平台
-- **uv** — Python 包管理器
-- **git** — 版本控制
+当前开发环境：
+- **Agent：** Claude Code + MiniMAX-M2.7
+- **工具：** uv, git
 
 ---
 
@@ -168,19 +154,29 @@ jm-forge 设计为与任何满足以下条件的 Agent 配合使用：
 
 The framework requires sufficient reasoning capability. Recommended model baseline:
 
-- **Claude series** ( Sonnet 4+ / Opus 4+ )
-- **GPT series** ( GPT-4o / o1 and equivalent reasoning models )
-- **Gemini series** ( with advanced reasoning capabilities )
+- **Claude series**
+- **GPT series**
+- **Gemini series**
 
 Baseline requirement: The model must be capable of following structured prompts and maintaining context across multi-step workflows.
 
 框架需要足够的推理能力。推荐模型基线：
 
-- **Claude 系列** ( Sonnet 4+ / Opus 4+ )
-- **GPT 系列** ( GPT-4o / o1 及同等推理能力模型 )
-- **Gemini 系列** ( 具备高级推理能力 )
+- **Claude 系列**
+- **GPT 系列**
+- **Gemini 系列**
 
 基线要求：模型必须能够遵循结构化提示词，并在多步骤工作流中保持上下文。
+
+### Baseline Models / 基线模型
+
+The framework can also work with more limited models, though with reduced autonomy and more manual intervention:
+
+- **MiniMax series** — Functional but requires more human guidance / 可用但需更多人工干预
+
+基线模型也能运行框架，但自主性较低，需要更多人工介入：
+
+- **MiniMax 系列** — 效果稍逊，需要更多人工指导
 
 ---
 
@@ -215,27 +211,37 @@ cat AGENTS.md
 
 ## Roadmap / 路线图
 
-- [ ] Cross-agent resource sharing / 跨 Agent 资源共享
-- [ ] Automated testing harness / 自动化测试工具
-- [ ] Integration with more agent platforms / 更多 Agent 平台集成
-- [ ] Plugin system for specialized workflows / 专用工作流插件系统
-- [ ] Visualization tools for map navigation / 地图可视化工具
+- [ ] **Cross-agent resource sharing** — Enable agents to share and synchronize RESOURCE-MAP data across sessions or teams. / 跨 Agent 资源共享 — 使 Agent 能够在不同会话或团队间共享和同步 RESOURCE-MAP 数据。
+- [ ] **Automated testing harness** — Create a validation framework to verify skills work correctly across environments. / 自动化测试工具 — 创建验证框架，确保技能在不同环境下正确工作。
+- [ ] **Integration with more agent platforms** — Adapt jm-forge skills to work with additional agent runtimes beyond Claude Code. / 更多 Agent 平台集成 — 使 jm-forge skills 适应更多 Agent 运行时。
+- [ ] **Plugin system for specialized workflows** — Allow domain-specific workflow extensions beyond the core D→P→E loop. / 专用工作流插件系统 — 在核心 D→P→E 循环之外允许特定领域的工作流扩展。
+- [ ] **Visualization tools for map navigation** — Build UI tools for browsing PROJECT-MAP and RESOURCE-MAP more intuitively. / 地图可视化工具 — 构建 UI 工具，更直观地浏览 PROJECT-MAP 和 RESOURCE-MAP。
 
 ---
 
 ## Contributing / 贡献
 
-We welcome all contributions — ideas, code, documentation, feedback. The framework is at an early stage and benefits from diverse perspectives.
+We welcome all contributions — any Agent, human, or system can open an issue. All useful information is welcome: methodology discussions, use case reports, theoretical critiques, evaluation results, and bug reports.
 
-我们欢迎各种形式的贡献——想法、代码、文档、反馈。框架处于早期阶段，多样化的视角有助于其发展。
+我们欢迎各种形式的贡献——任何 Agent、人类或系统都可以开 issue。所有有用的信息都欢迎：方法论讨论、用例报告、理论批评、测评结果、bug 报告。
 
-**Non-code contributions especially welcome:** methodology discussions, use case reports, and theoretical critiques help shape the framework's direction.
+**PRs are handled judiciously** — As a self-bootstrapping framework, we are conservative about merging external contributions. Issues are preferred for collaboration; PRs will be reviewed carefully before acceptance.
 
-**特别欢迎非代码贡献：** 方法论讨论，用例报告、理论批评都有助于塑造框架方向。
+**我们会慎重处理 PR** —— 作为一个自举框架，我们对合并外部贡献持保守态度。推荐通过 issue 协作；PR 会在仔细审核后再接受。
 
-- Open an issue to propose changes / 开 issue 提议改进
+- Open an issue for any contribution / 开 issue 提交任何形式的贡献
 - Start a discussion for exploratory topics / 发起讨论探索性话题
-- Submit PRs for concrete improvements / 提交 PR 改进具体问题
+- Submit PRs for concrete improvements (reviewed carefully) / 提交 PR 改进具体问题（会慎重审核）
+
+### Credit / 署名
+
+Contributors whose ideas, reports, or critiques are adopted will be credited in the relevant documentation. jm-forge embraces transparent acknowledgment — all meaningful contributions will be recognized.
+
+被采纳的有价值贡献将在相关文档中获得署名。jm-forge 重视透明的致谢——所有有意义的贡献都将被认可。
+
+*(Future: Automated credit workflow via jm-forge issues integration — the framework's own workflow can process and attribute contributions automatically.)*
+
+*(未来：通过 jm-forge issue 集成实现自动署名工作流——框架自身的工作流可以自动处理和归因贡献。)*
 
 ---
 

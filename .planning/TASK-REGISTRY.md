@@ -33,7 +33,8 @@ Documents reference their sources as follows:
 | 11 | resource-map-redesign | Completed | — | Redesign .external into RESOURCE-MAP with broader scope (人、财、物、信息) |
 | 12 | resource-auto-discovery | Completed | 10 | Auto-discover and register resources from existing project files |
 | 13 | readme-redesign | Completed | — | Write comprehensive README for MVP release: methodology, theory, getting started |
-| 14 | mvp-release | Active | — | Proper MVP release: checklist, pre-flight checks, publish to GitHub |
+| 14 | mvp-release | Completed | — | Git repo initialized, commit 665058e created, tag v0.1.0 tagged, pending push |
+| 15 | readme-finalize | Completed | 13 | All 3 steps verified: Roadmap expanded, Dev Environment fixed, paper links added |
 
 ---
 

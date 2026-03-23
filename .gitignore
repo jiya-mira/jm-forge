@@ -12,6 +12,9 @@ venv/
 .env.local
 .env.*.local
 
+# Project-specific (user-managed)
+RESOURCE-MAP/
+
 # Logs
 logs/
 *.log

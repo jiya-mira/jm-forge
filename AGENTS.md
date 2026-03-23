@@ -37,12 +37,13 @@ forge/
 │   ├── manifest.json              # Index of all skills
 │   ├── jm-forge-bootstrap/
 │   └── skill-scaffold/
-├── PROJECT-MAP/                   # Project context map
-├── RESOURCE-MAP/                  # Resource entity map
+├── PROJECT-MAP/                   # Project context map (created by jm-forge:init)
 ├── .planning/                     # Task planning directories
 ├── AGENTS.md                      # This file
 └── README.md                      # Project documentation
 ```
+
+**Note:** `RESOURCE-MAP/` is project-local (gitignored) — managed by `jm-forge:resource` but not part of framework distribution.
 
 **Skill naming conventions:**
 - `skill-scaffold` — internal framework skill (no prefix)
@@ -203,9 +204,9 @@ AGENTS.md → skills + phase docs
 
 ---
 
-## PROJECT-MAP and RESOURCE-MAP Maintenance
+## PROJECT-MAP Maintenance
 
-`PROJECT-MAP/` stores the project context map. `RESOURCE-MAP/` stores resource entities (人、财、物、信息). Keep both accurate:
+`PROJECT-MAP/` stores the project context map. Keep it accurate:
 
 1. **When you create, delete, or rename a meaningful project element, update PROJECT-MAP/**
    - `jm-forge:new` and `skill-scaffold` do this automatically
@@ -218,9 +219,11 @@ AGENTS.md → skills + phase docs
 3. **Use `jm-forge:init` only for first-time setup**
    - Subsequent updates use `jm-forge:sync`
 
-4. **Use `jm-forge:resource` to manage resource entities**
-   - Add/list/remove resources tracked in RESOURCE-MAP/
-   - Run `jm-forge:resource scan` to auto-discover resources
+## RESOURCE-MAP (Project-Local)
+
+`RESOURCE-MAP/` is project-local and gitignored — each project manages its own resources. Use `jm-forge:resource` to manage resource entities:
+- Add/list/remove resources tracked in the project's `RESOURCE-MAP/resources.json`
+- Run `jm-forge:resource scan` to auto-discover resources
 
 ---
 
