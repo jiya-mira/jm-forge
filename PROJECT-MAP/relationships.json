@@ -1,0 +1,71 @@
+{
+  // SCHEMA: relationships.json
+  // Typed relationship graph for jm-forge
+
+  "$schema": "jm-forge:project-map:v1",
+  "edges": [
+    {
+      "from": "entry-agents",
+      "to": "entry-registry",
+      "type": "references",
+      "confidence": "high",
+      "note": "AGENTS.md references TASK-REGISTRY.md as entry point"
+    },
+    {
+      "from": "entry-agents",
+      "to": "entry-workflow",
+      "type": "references",
+      "confidence": "high",
+      "note": "AGENTS.md references workflow-framework.md"
+    },
+    {
+      "from": "entry-agents",
+      "to": "entry-skills-manifest",
+      "type": "contains",
+      "confidence": "high",
+      "note": "AGENTS.md contains skill registration instructions"
+    },
+    {
+      "from": "entry-registry",
+      "to": "domain-workflow-framework",
+      "type": "references",
+      "confidence": "high",
+      "note": "Registry references workflow-framework for conventions"
+    },
+    {
+      "from": "entry-registry",
+      "to": "domain-task-management",
+      "type": "contains",
+      "confidence": "high",
+      "note": "Registry tracks all task management skill phases"
+    },
+    {
+      "from": "domain-task-management",
+      "to": "domain-workflow-framework",
+      "type": "builds-on",
+      "confidence": "high",
+      "note": "Task skills implement the workflow-framework conventions"
+    },
+    {
+      "from": "domain-bootstrap",
+      "to": "domain-skill-scaffold",
+      "type": "references",
+      "confidence": "medium",
+      "note": "Bootstrap may use skill-scaffold to add new skills"
+    },
+    {
+      "from": "domain-skill-scaffold",
+      "to": "asset-templates",
+      "type": "references",
+      "confidence": "high",
+      "note": "Scaffold uses templates/ for generating new skill phases"
+    },
+    {
+      "from": "asset-skill-naming",
+      "to": "domain-workflow-framework",
+      "type": "implements",
+      "confidence": "high",
+      "note": "Naming convention implements workflow-framework structure"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "skills": [
+    "jm-forge-abandon",
+    "jm-forge-auto",
+    "jm-forge-bootstrap",
+    "jm-forge-discuss",
+    "jm-forge-execute",
+    "jm-forge-init",
+    "jm-forge-list",
+    "jm-forge-new",
+    "jm-forge-plan",
+    "jm-forge-resource",
+    "jm-forge-status",
+    "jm-forge-sync",
+    "skill-scaffold",
+    "workflow-execute"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  // SCHEMA: project.json
+  // Top-level project metadata. The entry point of PROJECT-MAP/.
+
+  "$schema": "jm-forge:project-map:v1",
+
+  "projectName": "jm-forge",
+  "projectType": "framework",
+  "description": "A skills-based Agent scaffolding framework — meta-engineering project combining modern software engineering theories with multi-Agent collaboration patterns. Uses D→P→E (Discuss→Plan→Execute) workflow for task management.",
+
+  "domains": [
+    "jm-forge-bootstrap",
+    "skill-scaffold",
+    "task-management",
+    "workflow-framework"
+  ],
+
+  "rootEntry": "AGENTS.md",
+
+  "isCollection": false,
+
+  "createdAt": "2026-03-23",
+  "lastUpdated": "2026-03-23",
+  "mapperVersion": "1.0"
+}

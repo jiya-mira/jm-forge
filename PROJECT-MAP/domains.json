@@ -1,0 +1,62 @@
+{
+  // SCHEMA: domains.json
+  // Domain/module nodes for jm-forge framework
+
+  "$schema": "jm-forge:project-map:v1",
+  "nodes": [
+    {
+      "id": "domain-bootstrap",
+      "name": "jm-forge-bootstrap",
+      "type": "Domain",
+      "path": "skills/jm-forge-bootstrap/",
+      "description": "Ensures uv is installed and usable. The entry skill for new environments.",
+      "tags": ["bootstrap", "environment", "uv"],
+      "relationships": ["skill-scaffold", "AGENTS"]
+    },
+    {
+      "id": "domain-skill-scaffold",
+      "name": "skill-scaffold",
+      "type": "Domain",
+      "path": "skills/skill-scaffold/",
+      "description": "Internal skill for generating new skills. Uses Agent type decision flow.",
+      "tags": ["scaffolding", "skill-generation"],
+      "relationships": ["skill-scaffold-v2-plan"]
+    },
+    {
+      "id": "domain-task-management",
+      "name": "task-management",
+      "type": "Domain",
+      "path": ".claude/skills/",
+      "description": "Core workflow skills: new, discuss, plan, execute, status, list, abandon, auto. Manages task lifecycle from idea to completion.",
+      "tags": ["workflow", "task-lifecycle", "D→P→E"],
+      "relationships": ["domain-workflow-framework", "AGENTS"]
+    },
+    {
+      "id": "domain-workflow-framework",
+      "name": "workflow-framework",
+      "type": "Domain",
+      "path": ".planning/workflow-framework/",
+      "description": "The Discuss→Plan→Execute workflow definition. Establishes conventions, phases, and task lifecycle.",
+      "tags": ["workflow", "conventions", "phases"],
+      "relationships": ["AGENTS"]
+    },
+    {
+      "id": "domain-resource-map",
+      "name": "resource-map",
+      "type": "Domain",
+      "path": ".planning/",
+      "description": "RESOURCE-MAP framework: manage project resources (人、财、物、信息). Includes jm-forge-resource skill and auto-discovery.",
+      "tags": ["resource", "resource-map", "auto-discovery"],
+      "relationships": ["domain-task-management"]
+    },
+    {
+      "id": "domain-resource-auto-discovery",
+      "name": "resource-auto-discovery",
+      "type": "Domain",
+      "path": ".planning/resource-auto-discovery/",
+      "description": "Auto-discover and register resources from existing project files.",
+      "tags": ["resource", "auto-discovery", "scan"],
+      "relationships": ["domain-resource-map"]
+    }
+  ]
+}

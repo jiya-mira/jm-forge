@@ -1,0 +1,44 @@
+{
+  // SCHEMA: entries.json
+  // Entry point nodes for jm-forge
+
+  "$schema": "jm-forge:project-map:v1",
+  "nodes": [
+    {
+      "id": "entry-agents",
+      "name": "AGENTS.md",
+      "type": "EntryPoint",
+      "path": "AGENTS.md",
+      "description": "Primary entry point. Guides AI assistants working in this repository. Contains project overview, skill registry, workflow conventions, and document index.",
+      "tags": ["entry", "documentation", "skills"],
+      "relationships": ["entry-registry", "entry-workflow"]
+    },
+    {
+      "id": "entry-registry",
+      "name": "TASK-REGISTRY.md",
+      "type": "EntryPoint",
+      "path": ".planning/TASK-REGISTRY.md",
+      "description": "Central task list with IDs, states, and dependencies. All tasks tracked here.",
+      "tags": ["entry", "task", "registry"],
+      "relationships": ["domain-task-management"]
+    },
+    {
+      "id": "entry-workflow",
+      "name": "workflow-framework.md",
+      "type": "EntryPoint",
+      "path": ".planning/workflow-framework.md",
+      "description": "The Discuss→Plan→Execute workflow definition. Describes phases, state machine, and execution model.",
+      "tags": ["entry", "workflow", "conventions"],
+      "relationships": ["domain-workflow-framework"]
+    },
+    {
+      "id": "entry-skills-manifest",
+      "name": "manifest.json",
+      "type": "EntryPoint",
+      "path": "skills/manifest.json",
+      "description": "Index of all skills. Cross-platform canonical source.",
+      "tags": ["entry", "skills", "manifest"],
+      "relationships": ["domain-skill-scaffold", "domain-bootstrap"]
+    }
+  ]
+}
