@@ -195,8 +195,8 @@ The simplest way to install jm-forge is to let your Agent read the repository an
 最简单的安装方式是让 Agent 自己阅读仓库并自行安装：
 
 ```
-Read this repository and install jm-forge following the workflow defined here.
-阅读这个仓库，按照其中的工作流定义安装 jm-forge。
+Read https://github.com/jiya-mira/jm-forge and install jm-forge following the workflow defined there.
+阅读 https://github.com/jiya-mira/jm-forge，按照其中的工作流定义安装 jm-forge。
 ```
 
 Or manually: / 或手动：
