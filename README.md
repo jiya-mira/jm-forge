@@ -194,25 +194,10 @@ The framework is **platform-independent** — it does not depend on any specific
 
 The simplest way to install jm-forge is to let your Agent bootstrap itself. Give your agent this prompt:
 
-最简单的安装方式是让 Agent 自我引导。将以下提示词给你的 Agent：
-
 ```
 Clone https://github.com/jiya-mira/jm-forge to a temporary directory,
-then copy the skill directories from skills/ to your workspace's platform
-skill directory (e.g. .claude/skills/ for Claude Code). Choose only the
-skills you need.
-
-将 https://github.com/jiya-mira/jm-forge clone 到临时目录，然后把 skills/
-下的技能目录复制到你工作空间的平台技能目录（如 Claude Code 的 .claude/skills/）。
-只选择你需要的技能。
-```
-
-Example for Claude Code: / Claude Code 示例：
-
-```bash
-git clone https://github.com/jiya-mira/jm-forge.git /tmp/jm-forge
-# Copy only the skills you need to your workspace
-cp -r /tmp/jm-forge/skills/jm-forge-* ~/.claude/skills/
+run `uv run scripts/install-workspaces-skills.py` there, then copy the
+installed skills to your workspace's platform skill directory.
 ```
 
 ---
