@@ -205,11 +205,11 @@ This ensures:
 └── execute.md        ← Checkpoint log, Acceptance report
 ```
 
-**Template files:** See `.planning/templates/` for ready-to-copy templates:
-- `discuss.md`
-- `discuss-log.md`
-- `plan.md`
-- `execute.md`
+**Template files:** Templates are now internalized within the respective skills:
+- `jm-forge-discuss`
+- `jm-forge-plan`
+- `jm-forge-execute`
+- `jm-forge-new`
 
 **discuss.md format — Source reference on key conclusions only:**
 - Include `**Source:** discuss-log.md → Iteration N` on:

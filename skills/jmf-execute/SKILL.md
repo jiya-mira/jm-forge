@@ -72,7 +72,40 @@ On checkpoint failure:
 
 ### 6. Document
 
-Write to `.planning/<task-name>/execute.md` using template from `.planning/templates/execute.md`.
+Write to `.planning/<task-name>/execute.md` using the following template:
+
+```markdown
+# Execute — <task-name>
+
+**Date:** <YYYY-MM-DD>
+**Source:** plan.md
+
+---
+
+## Checkpoint Log
+
+## Batch 1
+
+**[Checkpoint 1: <name>]**
+Status: ✅ Verified / ❌ Failed
+Evidence: <what was observed>
+
+**[Checkpoint 2: <name>]**
+Status: ✅ Verified / ❌ Failed
+Evidence: <what was observed>
+
+## Batch 2 (if applicable)
+
+**[Checkpoint 3: <name>]**
+Status: ✅ Verified / ❌ Failed
+Evidence: <what was observed>
+
+---
+
+## Acceptance Report
+
+<Summary of whether task met its acceptance criteria defined in Discuss>
+```
 
 ## Exit Points
 
@@ -95,5 +128,4 @@ User can pause execution at any time. Task state becomes `Pending` and can be re
 ## Notes
 
 - Input is solely the plan output — no other sources consulted
-- Uses templates from `.planning/templates/execute.md`
 - Checkpoint failures use same protocol as Plan blocking issues

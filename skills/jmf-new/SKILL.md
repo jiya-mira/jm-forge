@@ -29,11 +29,18 @@ $jmf-new another-task --dependon 3
 
 ## Behavior
 
-1. **Determine next ID**: Read `.planning/TASK-REGISTRY.md`, find max ID, use next integer
+1. **Determine next ID**:
+   - Check if `.planning/TASK-REGISTRY.md` exists.
+   - **If missing**: Create it by copying `templates/registry-header.md`.
+   - **If exists**: Read file, find the maximum numeric ID, use `max_id + 1`.
+
 2. **Create task directory**: Create `.planning/<task-name>/` directory
-3. **Update TASK-REGISTRY.md**: Add new row with id, name, state=New, Dependon
-4. **Create initial discuss-log.md**: With Iteration 1 noting task creation
-5. **Update PROJECT-MAP/**: If `PROJECT-MAP/` exists, append new task node to `domains.json` (type: Domain, path: `.planning/<task-name>/`) and add relationship edge if parent domain exists
+
+3. **Update TASK-REGISTRY.md**: Append row `| <id> | <task-name> | New | <dependon-id-or-dash> | |`
+
+4. **Create initial discuss-log.md**: Create `.planning/<task-name>/discuss-log.md` by copying `templates/initial-discuss-log.md` and filling task metadata.
+
+5. **Update PROJECT-MAP/**: If `PROJECT-MAP/` exists, append new task node to `domains.json` and add relationship edge if parent domain exists
 
 ## Output
 
@@ -51,3 +58,4 @@ $jmf-new another-task --dependon 3
 
 - State is always `New` when created via this skill
 - To move a task from New to Discussing, use `jmf-discuss`
+- Automatically initializes `.planning/TASK-REGISTRY.md` if it doesn't exist

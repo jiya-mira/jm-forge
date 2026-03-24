@@ -62,7 +62,46 @@ If a previously unknown blocking issue is encountered:
 
 ### 4. Document
 
-Write to `.planning/<task-name>/plan.md` using template from `.planning/templates/plan.md`.
+Write to `.planning/<task-name>/plan.md` using the following template:
+
+```markdown
+# Plan — <task-name>
+
+**Date:** <YYYY-MM-DD>
+**Source:** Discuss output (consumed)
+
+---
+
+## Steps
+
+### Step 1: <verb-noun>
+
+**Action:** <What to do>
+
+**Approach:**
+- <detail>
+- <detail>
+
+**Checkpoint:** `<checkpoint-name>`
+- <Verification criterion>
+- <Verification criterion>
+
+---
+
+## Dependencies
+
+<Step ordering constraints, or "All steps are independent">
+
+## Tracking
+
+| Assumption | Risk |
+|-----------|------|
+| <assumption> | <Low/Medium/High> — <reason> |
+
+## Execution Order
+
+<sequential | parallel | parallel with dependencies noted>
+```
 
 ### 5. Completion
 
@@ -94,5 +133,4 @@ User can pause planning at any time. Task state remains `Planning` and can be re
 ## Notes
 
 - Plan output is the sole input to Execute — no other sources consulted
-- Uses templates from `.planning/templates/plan.md`
 - Dependencies use plain integers: `Dependon 3`

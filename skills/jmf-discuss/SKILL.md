@@ -60,6 +60,81 @@ Use structured prompting with these elements:
 
 After each key decision, write to `.planning/<task-name>/discuss.md` and append to `discuss-log.md`.
 
+**Template for `discuss.md`:**
+
+```markdown
+---
+id: <task-id>
+---
+
+# Discuss — <task-name>
+
+**Date:** <YYYY-MM-DD>
+**Status:** Concluded / In progress
+
+---
+
+## Goal
+
+<What we are trying to achieve>
+
+**Source:** discuss-log.md → Iteration N
+
+---
+
+## Boundary
+
+- **In scope:** <items>
+- **Out of scope:** <items>
+
+**Source:** discuss-log.md → Iteration N
+
+---
+
+## Assumptions
+
+1. <assumption 1>
+2. <assumption 2>
+
+**Source:** discuss-log.md → Iteration N
+
+---
+
+## Acceptance Criteria
+
+1. <criterion 1>
+2. <criterion 2>
+
+**Source:** discuss-log.md → Iteration N
+
+---
+
+## Open Issues
+
+| # | Issue | Blocking? | Notes |
+|---|-------|-----------|-------|
+| 1 | <issue> | Yes/No | <notes> |
+
+*(Resolved issues: include Source reference)*
+
+---
+
+## Key Decisions
+
+### <Decision Title>
+<Description>
+
+*(Key decisions only — include Source reference)*
+
+---
+
+## Conclusion
+
+<Summary and recommendation>
+
+**Source:** discuss-log.md → Iteration N
+```
+
 **Source references:** Only on key conclusions (Conclusion, Key Decisions, resolved Open Issues).
 
 ### 4. Completion
@@ -94,16 +169,23 @@ User can abandon the discuss at any time by saying "stop" or "pause". Task state
 When iterating, append to `discuss-log.md`:
 
 ```markdown
-## Iteration N
+## Iteration N — YYYY-MM-DD
 
-**Date:** YYYY-MM-DD
-**Input:** ...
-**Summary:** ...
-**Conclusion:** ...
+**Trigger:** <what prompted this iteration>
+
+**Topic:** <what was discussed>
+
+**Agent recommendation:** <what Agent suggested>
+
+**User decision:** <what user chose>
+
+**Conclusion:**
+- <key point 1>
+- <key point 2>
 ```
 
 ## Notes
 
-- Uses templates from `.planning/templates/discuss.md`
 - Agent leads with structured prompting; user assists via choices
 - User controls iteration — unlimited rounds before crossing to Plan
+
