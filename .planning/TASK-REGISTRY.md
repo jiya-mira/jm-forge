@@ -37,6 +37,10 @@ Documents reference their sources as follows:
 | 15 | readme-finalize | Completed | 13 | All 3 steps verified: Roadmap expanded, Dev Environment fixed, paper links added |
 | 16 | gemini-project-skill | Completed | — | 配置gemini对应的skill，使其可以以project级别的使用本工作流 |
 | 17 | skill-naming-standardization | Completed | — | jm-forge现存的skill以及未来的skill的命名规则问题，再次需要修正与规范化 |
+| 18 | codex-project-skill | Completed | — | 配置codex对应的skill，使其可以以project级别的使用本工作流 |
+| 19 | agent-install-scripts | Completed | 16, 18 | 参考task#16与task#18，创建主流agent的Workspace Skills安装脚本 |
+| 20 | workflow-iteration-norms | Completed | — | 结合理论、项目管理经验与Agent实践经验，研究并规范化工作流迭代规范 |
+| 21 | bootstrap-iteration-optimization | Completed | — | 本系列skill开发的自举迭代流程的优化和调整 |
 
 ---
 

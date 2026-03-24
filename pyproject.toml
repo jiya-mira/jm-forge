@@ -1,0 +1,6 @@
+[project]
+name = "jm-forge"
+version = "0.1.0"
+description = "jm-forge Workspace Skills Framework"
+requires-python = ">=3.10"
+dependencies = ["questionary>=1.10.0"]

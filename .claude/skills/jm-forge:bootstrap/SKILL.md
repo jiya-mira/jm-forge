@@ -58,21 +58,17 @@ The official Windows installer may require a shell restart to update PATH. If `u
 
 ## Bootstrap Process
 
-When this skill is invoked in a target project, the Agent should:
+When this skill is invoked, the Agent should:
 
 1. **Check for uv** — Run `uv --version` to verify uv is installed
 2. **If uv is not installed:**
    - In non-interactive mode: exit with error
    - In interactive mode: ask user for confirmation, then install
-3. **Copy jm-forge:* skills** to `.claude/skills/`:
-   - `jm-forge:new/`
-   - `jm-forge:discuss/`
-   - `jm-forge:plan/`
-   - `jm-forge:execute/`
-   - `jm-forge:auto/`
-   - `jm-forge:abandon/`
-   - `jm-forge:list/`
-   - `jm-forge:status/`
+3. **Run install script** to deploy skills to target directories:
+   ```bash
+   uv run scripts/install-workspaces-skills.py --all
+   ```
+   This installs all `jm-forge:*` skills to their respective target directories (`.claude/skills/`, `.gemini/skills/`, `.agents/skills/`).
 4. **Update target project's AGENTS.md** — Append the following section:
 
 ```markdown
@@ -80,12 +76,17 @@ When this skill is invoked in a target project, the Agent should:
 
 This project uses a **Discuss → Plan → Execute** workflow. See `.planning/workflow-framework.md` for details.
 
-### Task Unit Definition
-A task is an atomic unit of work with:
-1. Explicit start (clear trigger)
-2. Explicit end (completion criteria)
-3. Independently verifiable (external observer can confirm)
-4. Recursively decomposable (break into ordered steps)
+### Task Lifecycle
+| State | Description |
+|-------|-------------|
+| New | User proposed the idea |
+| Discussing | In Discuss phase |
+| Planning | In Plan phase |
+| Pending | Plan complete, waiting to execute |
+| Active | In Execute phase |
+| Completed | Execute finished successfully |
+| Failed | Execute failed |
+| Abandoned | Explicitly abandoned by user |
 
 ### Workflow Skills
 | Skill | Purpose |
@@ -94,16 +95,17 @@ A task is an atomic unit of work with:
 | jm-forge:discuss | Discuss phase |
 | jm-forge:plan | Plan phase |
 | jm-forge:execute | Execute phase |
-| jm-forge:auto | Auto-advance |
 | jm-forge:abandon | Abandon task |
 | jm-forge:list | List tasks |
 | jm-forge:status | Task details |
 
+### Iteration Norms
+- **Append-only**: Documents only append, never overwrite
+- **Soft Boundaries**: Phases are guidelines, not hard walls. No forced backtracking.
+
 ### Trigger Rule
 When user describes a goal with clear start, end, and verifiable completion — offer or use the workflow.
 ```
-
-5. **Update target's manifest.json** if it exists in `skills/`
 
 ## Notes
 
