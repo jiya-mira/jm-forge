@@ -193,6 +193,7 @@ The framework is **platform-independent** — it does not depend on any specific
 ## Getting Started / 快速上手
 
 The simplest way to install jm-forge is to let your Agent bootstrap itself. Give your agent this prompt:
+最简单的安装方式是让 Agent 自我引导。将以下提示词给你的 Agent：
 
 ```
 Clone https://github.com/jiya-mira/jm-forge to a temporary directory.
