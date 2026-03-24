@@ -1,5 +1,5 @@
 ---
-name: jm-forge:plan
+name: jmf-plan
 description: Conduct the Plan phase for a task. Create step decomposition and checkpoints.
 ---
 
@@ -12,13 +12,13 @@ Conduct the Plan phase for a task. Create an executable plan based on Discuss ou
 ## Usage
 
 ```
-$jm-forge-plan <task-id>
+$jmf-plan <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge-plan 3
+$jmf-plan 3
 ```
 
 ## Input

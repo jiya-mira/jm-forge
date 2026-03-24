@@ -1,5 +1,5 @@
 ---
-name: jm-forge:auto
+name: jmf-auto
 description: Automatically advance a task to its next logical state. Reads current state and proceeds accordingly.
 ---
 
@@ -12,13 +12,13 @@ Automatically advance a task based on its current state. Acts as a convenience w
 ## Usage
 
 ```
-$jm-forge-auto <task-id>
+$jmf-auto <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge-auto 3
+$jmf-auto 3
 ```
 
 ## Input
@@ -46,10 +46,10 @@ $jm-forge-auto 3
 
 ### 2. Auto-Execute
 
-- **New → Discussing**: Invoke jm-forge:discuss internally
+- **New → Discussing**: Invoke jmf-discuss internally
 - **Discussing → Planning**: Complete discuss, update state
 - **Planning → Pending**: Complete plan, update state
-- **Pending → Active**: Invoke jm-forge:execute internally
+- **Pending → Active**: Invoke jmf-execute internally
 - **Active → Completed/Failed/Pending**: Continue execution, update state
 
 ### 3. Stop Conditions

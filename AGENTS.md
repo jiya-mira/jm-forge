@@ -27,7 +27,7 @@ The framework evolves through **self-regressive bootstrapping**: the project use
 ```
 forge/
 ├── .claude/skills/                # Claude Code discovery (actual files)
-│   ├── jm-forge-*/               # All jm-forge-* skills
+│   ├── jmf-*/               # All jmf-* skills
 │   │   └── SKILL.md
 │   ├── skill-scaffold/
 │   │   └── SKILL.md
@@ -35,19 +35,19 @@ forge/
 │       └── SKILL.md
 ├── skills/                        # Canonical source (cross-platform)
 │   ├── manifest.json              # Index of all skills
-│   ├── jm-forge-bootstrap/
+│   ├── jmf-bootstrap/
 │   └── skill-scaffold/
-├── PROJECT-MAP/                   # Project context map (created by jm-forge:init)
+├── PROJECT-MAP/                   # Project context map (created by jmf-init)
 ├── .planning/                     # Task planning directories
 ├── AGENTS.md                      # This file
 └── README.md                      # Project documentation
 ```
 
-**Note:** `RESOURCE-MAP/` is project-local (gitignored) — managed by `jm-forge:resource` but not part of framework distribution.
+**Note:** `RESOURCE-MAP/` is project-local (gitignored) — managed by `jmf-resource` but not part of framework distribution.
 
 **Skill naming conventions:**
 - `skill-scaffold` — internal framework skill (no prefix)
-- `jm-forge-*` — publishable skills ready for distribution
+- `jmf-*` — publishable skills ready for distribution
 - `workflow-execute` — workflow orchestration skill
 
 **Claude Code integration:**
@@ -65,7 +65,7 @@ forge/
 
 ### Prerequisites
 
-Before using any skill, ensure `uv` is installed. See `skills/jm-forge-bootstrap/SKILL.md` for instructions.
+Before using any skill, ensure `uv` is installed. See `skills/jmf-bootstrap/SKILL.md` for instructions.
 
 ### Validation
 
@@ -85,7 +85,7 @@ Before using any skill, ensure `uv` is installed. See `skills/jm-forge-bootstrap
 When adding a new skill:
 1. Choose a name:
    - Internal skills: `skill-scaffold` (no prefix)
-   - Publishable skills: `jm-forge-<name>` (e.g., `jm-forge-code-review`)
+   - Publishable skills: `jmf-<name>` (e.g., `jmf-code-review`)
 2. Create `skills/<skill-name>/` directory
 3. Add `skills/<skill-name>/SKILL.md` with frontmatter:
    ```yaml
@@ -143,17 +143,17 @@ When a user expresses intent that satisfies all four conditions above, the workf
 
 | Skill | Purpose |
 |-------|---------|
-| `jm-forge:new` | Create a new task |
-| `jm-forge:discuss` | Conduct Discuss phase |
-| `jm-forge:plan` | Conduct Plan phase |
-| `jm-forge:execute` | Conduct Execute phase |
-| `jm-forge:auto` | Auto-advance through phases |
-| `jm-forge:list` | List all tasks |
-| `jm-forge:status` | Show task details |
-| `jm-forge:abandon` | Mark task as abandoned |
-| `jm-forge:init` | Analyze project and build PROJECT-MAP |
-| `jm-forge:sync` | Update existing PROJECT-MAP |
-| `jm-forge:resource` | Manage project resources (add/list/remove) |
+| `jmf-new` | Create a new task |
+| `jmf-discuss` | Conduct Discuss phase |
+| `jmf-plan` | Conduct Plan phase |
+| `jmf-execute` | Conduct Execute phase |
+| `jmf-auto` | Auto-advance through phases |
+| `jmf-list` | List all tasks |
+| `jmf-status` | Show task details |
+| `jmf-abandon` | Mark task as abandoned |
+| `jmf-init` | Analyze project and build PROJECT-MAP |
+| `jmf-sync` | Update existing PROJECT-MAP |
+| `jmf-resource` | Manage project resources (add/list/remove) |
 
 ### Workflow States
 
@@ -209,21 +209,21 @@ AGENTS.md → skills + phase docs
 `PROJECT-MAP/` stores the project context map. Keep it accurate:
 
 1. **When you create, delete, or rename a meaningful project element, update PROJECT-MAP/**
-   - `jm-forge:new` and `skill-scaffold` do this automatically
-   - For other changes: run `jm-forge:sync` or manually update relevant JSON files
+   - `jmf-new` and `skill-scaffold` do this automatically
+   - For other changes: run `jmf-sync` or manually update relevant JSON files
 
-2. **Run `jm-forge:sync` when map is stale**
-   - `jm-forge:discuss` will prompt if it detects stale data
+2. **Run `jmf-sync` when map is stale**
+   - `jmf-discuss` will prompt if it detects stale data
    - `--force-refresh` for full rebuild
 
-3. **Use `jm-forge:init` only for first-time setup**
-   - Subsequent updates use `jm-forge:sync`
+3. **Use `jmf-init` only for first-time setup**
+   - Subsequent updates use `jmf-sync`
 
 ## RESOURCE-MAP (Project-Local)
 
-`RESOURCE-MAP/` is project-local and gitignored — each project manages its own resources. Use `jm-forge:resource` to manage resource entities:
+`RESOURCE-MAP/` is project-local and gitignored — each project manages its own resources. Use `jmf-resource` to manage resource entities:
 - Add/list/remove resources tracked in the project's `RESOURCE-MAP/resources.json`
-- Run `jm-forge:resource scan` to auto-discover resources
+- Run `jmf-resource scan` to auto-discover resources
 
 ---
 

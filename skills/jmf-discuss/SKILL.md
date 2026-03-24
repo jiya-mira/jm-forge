@@ -1,5 +1,5 @@
 ---
-name: jm-forge:discuss
+name: jmf-discuss
 description: Conduct the Discuss phase for a task. Define goal, boundary, assumptions, and acceptance criteria.
 ---
 
@@ -12,13 +12,13 @@ Conduct the Discuss phase for a task. This defines the task before planning begi
 ## Usage
 
 ```
-$jm-forge-discuss <task-id>
+$jmf-discuss <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge-discuss 3
+$jmf-discuss 3
 ```
 
 ## Input
@@ -34,7 +34,7 @@ $jm-forge-discuss 3
 
 ### 1. Setup
 1. Read `PROJECT-MAP/SUMMARY.md` (and relevant JSON files on demand) to understand project context
-2. **Check freshness**: If `PROJECT-MAP/project.json.lastUpdated` is older than 7 days, OR any node references a non-existent path: prompt "PROJECT-MAP may be stale. Run `jm-forge:sync` to update?"
+2. **Check freshness**: If `PROJECT-MAP/project.json.lastUpdated` is older than 7 days, OR any node references a non-existent path: prompt "PROJECT-MAP may be stale. Run `jmf-sync` to update?"
 3. Read TASK-REGISTRY.md, confirm task exists
 4. Set task state to `Discussing`
 5. Read existing discuss.md and discuss-log.md if they exist (resume scenario)

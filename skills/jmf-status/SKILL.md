@@ -1,5 +1,5 @@
 ---
-name: jm-forge:status
+name: jmf-status
 description: Show detailed status for a specific task including its discuss.md, plan.md, and execute.md if they exist.
 ---
 
@@ -12,13 +12,13 @@ Show detailed information about a specific task.
 ## Usage
 
 ```
-$jm-forge-status <task-id>
+$jmf-status <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge-status 3
+$jmf-status 3
 ```
 
 ## Input

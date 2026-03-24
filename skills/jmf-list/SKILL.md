@@ -1,5 +1,5 @@
 ---
-name: jm-forge:list
+name: jmf-list
 description: List all tasks from TASK-REGISTRY.md with their IDs, states, and dependencies.
 ---
 
@@ -12,13 +12,13 @@ Read `.planning/TASK-REGISTRY.md` and display all tasks in a human-readable form
 ## Usage
 
 ```
-/jm-forge:list
+/jmf-list
 ```
 
 Or as a skill invocation:
 
 ```
-$jm-forge-list
+$jmf-list
 ```
 
 ## Output

@@ -1,5 +1,5 @@
 ---
-name: jm-forge:execute
+name: jmf-execute
 description: Execute the plan for a task. Verify checkpoints and report results.
 ---
 
@@ -12,13 +12,13 @@ Execute the plan for a task, verifying checkpoints and reporting results.
 ## Usage
 
 ```
-$jm-forge-execute <task-id>
+$jmf-execute <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge-execute 3
+$jmf-execute 3
 ```
 
 ## Input

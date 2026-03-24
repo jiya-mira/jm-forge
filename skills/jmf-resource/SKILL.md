@@ -1,5 +1,5 @@
 ---
-name: jm-forge:resource
+name: jmf-resource
 description: Manage project resources (entities, assets, equipment, organizations). Use to add, list, or remove resources managed by the project.
 ---
 
@@ -14,7 +14,7 @@ Resources are stored in `RESOURCE-MAP/resources.json`.
 ## Usage
 
 ```
-$jm-forge-resource <command> [options]
+$jmf-resource <command> [options]
 ```
 
 Commands:

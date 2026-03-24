@@ -22,13 +22,13 @@ Documents reference their sources as follows:
 |----|------|-------|----------|-------|
 | 1 | workflow-framework | Completed | — | |
 | 2 | jm-forge-bootstrap | Completed | — | |
-| 3 | jm-forge:* skills | Completed | — | jm-forge:new, :discuss, :plan, :execute, :abandon, :list, :status, :auto |
+| 3 | jmf-* skills | Completed | — | jmf-new, :discuss, :plan, :execute, :abandon, :list, :status, :auto |
 | 4 | skill-scaffold-v2 | Completed | — | skill-scaffold SKILL.md updated with Agent type decision flow |
 | 5 | doc-relationship-graph | Completed | — | Document reference conventions established |
 | 6 | task-concurrency-control | New | — | Prevent conflicts when user manages multiple tasks simultaneously |
 | 7 | skill-naming-overhaul | Completed | — | Redesign skill naming convention for usability |
 | 8 | jm-forge-init | Completed | — | Analyze existing project and build context map for jm-forge workflow |
-| 9 | jm-forge-init-refresh | Completed | — | Add re-run support and incremental maintenance protocol to jm-forge:init |
+| 9 | jm-forge-init-refresh | Completed | — | Add re-run support and incremental maintenance protocol to jmf-init |
 | 10 | external-resources-support | Completed | — | Support external resources in jm-forge-init and jm-forge-sync for project collections |
 | 11 | resource-map-redesign | Completed | — | Redesign .external into RESOURCE-MAP with broader scope (人、财、物、信息) |
 | 12 | resource-auto-discovery | Completed | 10 | Auto-discover and register resources from existing project files |
@@ -41,7 +41,7 @@ Documents reference their sources as follows:
 | 19 | agent-install-scripts | Completed | 16, 18 | 参考task#16与task#18，创建主流agent的Workspace Skills安装脚本 |
 | 20 | workflow-iteration-norms | Completed | — | 结合理论、项目管理经验与Agent实践经验，研究并规范化工作流迭代规范 |
 | 21 | bootstrap-iteration-optimization | Completed | — | 本系列skill开发的自举迭代流程的优化和调整 |
-| 22 | analyze-jm-forge-new-skill-ux | Completed | — | 场景分析：基于racobit案例研究jm-forge:new的UX优化方向 |
+| 22 | analyze-jm-forge-new-skill-ux | Completed | — | 场景分析：基于racobit案例研究jmf-new的UX优化方向 |
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: jm-forge:sync
+name: jmf-sync
 description: Update an existing PROJECT-MAP. Use --force-refresh for full rebuild, or default for incremental sync.
 ---
 
@@ -12,7 +12,7 @@ Update an existing `PROJECT-MAP/` context map. Handles incremental maintenance a
 ## Usage
 
 ```
-$jm-forge-sync [--force-refresh] [--stale-threshold <days>]
+$jmf-sync [--force-refresh] [--stale-threshold <days>]
 ```
 
 **Flags:**
@@ -22,20 +22,20 @@ $jm-forge-sync [--force-refresh] [--stale-threshold <days>]
 
 ## Pre-conditions
 
-- `PROJECT-MAP/` must already exist (use `jm-forge:init` first if it does not)
+- `PROJECT-MAP/` must already exist (use `jmf-init` first if it does not)
 
 ## Behavior
 
 ### 1. Check PROJECT-MAP/ exists
 
-If `PROJECT-MAP/` does not exist: report "PROJECT-MAP/ not found. Run `jm-forge:init` first."
+If `PROJECT-MAP/` does not exist: report "PROJECT-MAP/ not found. Run `jmf-init` first."
 
 ### 2. Determine mode
 
 **Force refresh (`--force-refresh`):**
 - Re-run full discovery from scratch
 - Discard previous merge decisions
-- Equivalent to re-running `jm-forge:init` but preserves the same directory
+- Equivalent to re-running `jmf-init` but preserves the same directory
 
 **Incremental sync (default):**
 - Scan for new files → add nodes
@@ -74,16 +74,16 @@ Report:
 
 **Resource scan:**
 - After sync, ask user: "是否要重新扫描项目发现新资源？"
-- If yes, use `jm-forge:resource scan` workflow
+- If yes, use `jmf-resource scan` workflow
 - User confirms each resource before registration
 - Scan is non-destructive — only suggests, never auto-registers
 
 **Sync behavior:**
 - If resources changed, update the corresponding nodes in domains.json
-- If new resources added via `jm-forge:resource add`, include in next sync
+- If new resources added via `jmf-resource add`, include in next sync
 
 ## Notes
 
 - This skill is agent-agnostic — does not depend on Claude Code or any specific agent platform
-- For first-time setup, use `jm-forge:init` — this skill requires an existing PROJECT-MAP/
+- For first-time setup, use `jmf-init` — this skill requires an existing PROJECT-MAP/
 - Maintenance convention: run this after creating/deleting/renaming meaningful project elements

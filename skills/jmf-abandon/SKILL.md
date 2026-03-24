@@ -1,5 +1,5 @@
 ---
-name: jm-forge:abandon
+name: jmf-abandon
 description: Mark a task as Abandoned. This is a user-initiated action only.
 ---
 
@@ -12,14 +12,14 @@ Mark an existing task as Abandoned.
 ## Usage
 
 ```
-$jm-forge-abandon <task-id> [--reason <text>]
+$jmf-abandon <task-id> [--reason <text>]
 ```
 
 Example:
 
 ```
-$jm-forge-abandon 3
-$jm-forge-abandon 3 --reason "用户改变主意"
+$jmf-abandon 3
+$jmf-abandon 3 --reason "用户改变主意"
 ```
 
 ## Input

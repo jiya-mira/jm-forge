@@ -1,5 +1,5 @@
 ---
-name: jm-forge:init
+name: jmf-init
 description: Analyze the current project and build a PROJECT-MAP context map. Run when introducing jm-forge to an existing project, or when --refresh is needed.
 ---
 
@@ -12,16 +12,16 @@ Analyze the current working directory and build a `PROJECT-MAP/` context map tha
 ## Usage
 
 ```
-$jm-forge-init
+$jmf-init
 ```
 
 - First-time only: creates PROJECT-MAP/ from scratch
-- If PROJECT-MAP/ already exists: directs user to `jm-forge:sync`
+- If PROJECT-MAP/ already exists: directs user to `jmf-sync`
 
 ## Pre-conditions
 
 - `PROJECT-MAP/` must NOT exist
-- If PROJECT-MAP/ exists: report "PROJECT-MAP/ already exists. Use `jm-forge:sync` to update."
+- If PROJECT-MAP/ exists: report "PROJECT-MAP/ already exists. Use `jmf-sync` to update."
 
 ## Behavior
 
@@ -78,7 +78,7 @@ Write to `PROJECT-MAP/` directory:
 
 **Resource scan:**
 - After init, ask user: "是否要扫描项目发现潜在资源？"
-- If yes, use `jm-forge:resource scan` workflow to discover resources
+- If yes, use `jmf-resource scan` workflow to discover resources
 - User confirms each resource before registration
 - Scan is non-destructive — only suggests, never auto-registers
 
@@ -97,6 +97,6 @@ See `PROJECT-MAP/schema-reference.md` for full schema.
 ## Notes
 
 - This skill is agent-agnostic — does not depend on Claude Code or any specific agent platform
-- `jm-forge:discuss` reads `PROJECT-MAP/SUMMARY.md` before starting each discuss phase
+- `jmf-discuss` reads `PROJECT-MAP/SUMMARY.md` before starting each discuss phase
 - User manually triggers this skill — it is NOT run automatically (token expensive)
-- For updating an existing PROJECT-MAP/, use `jm-forge:sync`
+- For updating an existing PROJECT-MAP/, use `jmf-sync`

@@ -1,5 +1,5 @@
 ---
-name: jm-forge:new
+name: jmf-new
 description: Create a new task and add it to TASK-REGISTRY.md with state New.
 ---
 
@@ -12,14 +12,14 @@ Create a new task entry in the task registry.
 ## Usage
 
 ```
-$jm-forge-new <task-name> [--dependon <id>]
+$jmf-new <task-name> [--dependon <id>]
 ```
 
 Example:
 
 ```
-$jm-forge-new my-new-skill
-$jm-forge-new another-task --dependon 3
+$jmf-new my-new-skill
+$jmf-new another-task --dependon 3
 ```
 
 ## Input
@@ -50,4 +50,4 @@ $jm-forge-new another-task --dependon 3
 ## Notes
 
 - State is always `New` when created via this skill
-- To move a task from New to Discussing, use `jm-forge:discuss`
+- To move a task from New to Discussing, use `jmf-discuss`

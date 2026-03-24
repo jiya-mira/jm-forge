@@ -3,7 +3,7 @@
 jm-forge Workspace Skills Installer
 
 Unified installer for jm-forge skills across multiple AI agents.
-Supports: Claude Code, Gemini CLI, Codex CLI
+Supports: Claude Code, Gemini CLI, OpenCode, Codex CLI
 
 Usage:
     # Interactive mode (default)
@@ -12,11 +12,11 @@ Usage:
     # Non-interactive mode - install all to all agents
     uvx scripts/install-workspaces-skills.py --all
 
-    # Non-interactive mode - specific agents
-    uvx scripts/install-workspaces-skills.py --agents claude gemini
+    # Non-interactive mode - force update
+    uvx scripts/install-workspaces-skills.py --all --force
 
-    # Non-interactive mode - include dev skills
-    uvx scripts/install-workspaces-skills.py --include-dev
+    # Non-interactive mode - specific agents
+    uvx scripts/install-workspaces-skills.py --agents claude gemini opencode
 
 Requirements:
     - uv (https://astral.sh/uv)
@@ -26,6 +26,7 @@ Requirements:
 import argparse
 import shutil
 import sys
+import os
 from pathlib import Path
 from typing import List, Optional
 
@@ -41,11 +42,13 @@ META_SKILL_SOURCE = Path("skills")
 TARGET_AGENTS = {
     ".claude/skills/": "Claude Code",
     ".gemini/skills/": "Gemini CLI",
+    ".opencode/skills/": "OpenCode",
     ".agents/skills/": "Codex CLI",
 }
 AGENT_ALIASES = {
     "claude": ".claude/skills/",
     "gemini": ".gemini/skills/",
+    "opencode": ".opencode/skills/",
     "codex": ".agents/skills/",
 }
 
@@ -53,7 +56,7 @@ AGENT_ALIASES = {
 def get_skills(skills_dir: Path) -> tuple[List[Path], List[Path]]:
     """Get published and dev skills based on naming convention.
 
-    Published skills: jm-forge:* (installed by default)
+    Published skills: jmf-* (installed by default)
     Dev skills: others (opt-in)
     """
     if not skills_dir.exists():
@@ -61,8 +64,8 @@ def get_skills(skills_dir: Path) -> tuple[List[Path], List[Path]]:
 
     all_skills = [d for d in skills_dir.iterdir() if d.is_dir()]
 
-    published = [s for s in all_skills if s.name.startswith("jm-forge:")]
-    dev = [s for s in all_skills if not s.name.startswith("jm-forge:")]
+    published = [s for s in all_skills if s.name.startswith("jmf-")]
+    dev = [s for s in all_skills if not s.name.startswith("jmf-")]
 
     return published, dev
 
@@ -100,13 +103,13 @@ def select_skill_mode_interactive() -> bool:
     return include_dev
 
 
-def install_skills(target_path: Path, skills: List[Path]) -> dict:
+def install_skills(target_path: Path, skills: List[Path], force: bool = False) -> dict:
     """Install skills to target directory.
 
     Returns:
-        Dict with 'installed' and 'skipped' skill names.
+        Dict with 'installed', 'updated', and 'skipped' skill names.
     """
-    result = {"installed": [], "skipped": []}
+    result = {"installed": [], "updated": [], "skipped": []}
 
     # Create target directory if it doesn't exist
     target_path.mkdir(parents=True, exist_ok=True)
@@ -115,11 +118,21 @@ def install_skills(target_path: Path, skills: List[Path]) -> dict:
         dest = target_path / skill.name
 
         if dest.exists():
-            result["skipped"].append(skill.name)
-            continue
-
-        shutil.copytree(skill, dest)
-        result["installed"].append(skill.name)
+            if not force:
+                result["skipped"].append(skill.name)
+                continue
+            
+            # Remove existing directory/file
+            if dest.is_dir():
+                shutil.rmtree(dest)
+            else:
+                dest.unlink()
+            
+            shutil.copytree(skill, dest)
+            result["updated"].append(skill.name)
+        else:
+            shutil.copytree(skill, dest)
+            result["installed"].append(skill.name)
 
     return result
 
@@ -135,13 +148,23 @@ def print_results(agent_name: str, target: str, result: dict):
         for name in sorted(result["installed"]):
             print(f"    + {name}")
 
+    if result["updated"]:
+        print(f"  已更新 ({len(result['updated'])}):")
+        for name in sorted(result["updated"]):
+            print(f"    * {name}")
+
     if result["skipped"]:
         print(f"  已跳过 ({len(result['skipped'])}):")
         for name in sorted(result["skipped"]):
             print(f"    - {name}")
 
-    if not result["installed"] and not result["skipped"]:
+    if not any(result.values()):
         print("  (无技能)")
+
+    if agent_name == "OpenCode":
+        print("\n  [OpenCode 提示]")
+        print("  请确保您的 AGENTS.md 包含对这些技能的描述，")
+        print("  或者将 .opencode/skills 目录添加到您的工具扫描路径中。")
 
 
 def resolve_agent(alias_or_path: str) -> Optional[str]:
@@ -156,41 +179,47 @@ def resolve_agent(alias_or_path: str) -> Optional[str]:
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description="jm-forge Workspace Skills Installer",
+        description="jm-forge Workspace Skills Installer (JMF Standard Edition)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   # Interactive mode
   uvx scripts/install-workspaces-skills.py
 
-  # Install all published skills to all agents
+  # Install all JMF skills to all agents
   uvx scripts/install-workspaces-skills.py --all
 
-  # Install to specific agents
-  uvx scripts/install-workspaces-skills.py --agents claude gemini
+  # Force update existing skills
+  uvx scripts/install-workspaces-skills.py --all --force
 
-  # Include dev skills
-  uvx scripts/install-workspaces-skills.py --all --include-dev
+  # Install to specific agents
+  uvx scripts/install-workspaces-skills.py --agents claude gemini opencode
         """
     )
 
     parser.add_argument(
         "--all", "-a",
         action="store_true",
-        help="安装到所有已知的 Agent（Claude, Gemini, Codex）"
+        help="安装到所有已知的 Agent（Claude, Gemini, OpenCode, Codex）"
     )
 
     parser.add_argument(
         "--agents",
         nargs="+",
         metavar="AGENT",
-        help="指定目标 Agent（可用别名: claude, gemini, codex）"
+        help="指定目标 Agent（可用别名: claude, gemini, opencode, codex）"
     )
 
     parser.add_argument(
         "--include-dev",
         action="store_true",
         help="包含开发技能（skill-scaffold, workflow-execute）"
+    )
+
+    parser.add_argument(
+        "--force", "-f",
+        action="store_true",
+        help="强制覆盖已存在的技能"
     )
 
     parser.add_argument(
@@ -202,7 +231,7 @@ Examples:
     args = parser.parse_args()
 
     print("=" * 50)
-    print("jm-forge Workspace Skills Installer")
+    print("jm-forge Workspace Skills Installer (JMF Standard)")
     print("=" * 50)
 
     # Get available skills
@@ -260,15 +289,19 @@ Examples:
 
     skills_to_install = published + (dev if include_dev else [])
 
-    print(f"\n将安装 {len(skills_to_install)} 个技能到 {len(selected_agents)} 个 Agent")
+    print(f"\n将操作 {len(skills_to_install)} 个技能到 {len(selected_agents)} 个 Agent")
     if args.dry_run:
-        print("[DRY RUN]")
+        print("[DRY RUN - 仅显示不执行]")
 
     # Install to each selected agent
     all_results = {}
     for target in selected_agents:
         agent_name = TARGET_AGENTS.get(target, target)
-        result = install_skills(Path(target), skills_to_install)
+        if args.dry_run:
+            # Simulate result for dry run
+            result = {"installed": [s.name for s in skills_to_install], "updated": [], "skipped": []}
+        else:
+            result = install_skills(Path(target), skills_to_install, force=args.force)
         all_results[target] = (agent_name, result)
 
     # Print results
@@ -276,7 +309,7 @@ Examples:
         print_results(agent_name, target, result)
 
     print("\n" + "=" * 50)
-    print("安装完成！")
+    print("操作完成！" if not args.dry_run else "Dry Run 完成！")
     print("=" * 50)
 
     return 0

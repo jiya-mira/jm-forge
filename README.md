@@ -76,9 +76,9 @@ Beyond code structure, projects often involve **external resources**: servers, e
 
 除代码结构外，项目通常涉及**外部资源**：服务器、设备、组织、人员、财务资产。`RESOURCE-MAP/` 将这些作为项目本地文件捕获（gitignored — 不属于框架发布的一部分）。
 
-See `jm-forge:resource` skill for management commands.
+See `jmf-resource` skill for management commands.
 
-管理命令见 `jm-forge:resource` skill。
+管理命令见 `jmf-resource` skill。
 
 ### Self-Bootstrapping / 自举
 
@@ -192,17 +192,37 @@ The framework is **platform-independent** — it does not depend on any specific
 
 ## Getting Started / 快速上手
 
-The simplest way to install jm-forge is to let your Agent bootstrap itself. Give your agent this prompt:
-最简单的安装方式是让 Agent 自我引导。将以下提示词给你的 Agent：
+The simplest way to install jm-forge is to let your Agent bootstrap itself. Use the prompt below to guide your Agent to install the **JMF Standard** skills.
+最简单的安装方式是让 Agent 自我引导。使用以下提示词引导您的 Agent 安装 **JMF 标准**技能。
 
-```
+### Recommended Prompt / 推荐提示词
+
+```text
 Clone https://github.com/jiya-mira/jm-forge to a temporary directory.
-This is a skills-based Agent scaffolding framework with a Discuss→Plan→Execute
-workflow. Read scripts/install-workspaces-skills.py to understand how it
-installs skills to platform-specific directories (.claude/skills/,
-.gemini/skills/, .agents/skills/). Then copy the skill directories you
-need from the temporary clone into your actual workspace's skill directory.
+Copy all folders starting with 'jmf-' from the 'skills/' directory into
+my local workspace's skill directory (e.g., .gemini/skills/, .claude/skills/,
+or .opencode/skills/). These are JMF Standard skills that use a 
+Discuss→Plan→Execute workflow.
 ```
+
+### Installation Paths / 安装路径
+
+| Agent Platform | Path / 路径 | Note / 说明 |
+|----------------|-------------|-------------|
+| **Gemini CLI** | `.gemini/skills/` | Project-local priority / 项目本地优先 |
+| **Claude Code**| `.claude/skills/` | Standard discovery path / 标准发现路径 |
+| **OpenCode**   | `.opencode/skills/`| See **OpenCode Note** below / 见下方说明 |
+| **Codex CLI**  | `.agents/skills/` | Legacy compatibility / 兼容性路径 |
+
+#### The Installation Litmus Test / 安装准入测试
+
+We intentionally removed complex installation scripts. The **JMF Standard** relies on the bootstrap prompt above as a **baseline test** for Agent intelligence:
+我们刻意移除了复杂的安装脚本。**JMF 标准**依赖上方的自举提示词作为 Agent 智能的**基准测试**：
+
+- **Pass / 通过**: If the Agent can follow the prompt to clone, locate, and copy the skills, it possesses the minimum reasoning depth required for the `jm-forge` workflow.
+  如果 Agent 能够遵循提示词完成仓库克隆、定位并拷贝技能，说明它具备了运行 `jm-forge` 工作流所需的最低推理深度。
+- **Fail / 失败**: If the Agent fails this step, it is likely incapable of maintaining the structural discipline required for the **Discuss→Plan→Execute** cycle. We recommend using a more capable model.
+  如果 Agent 无法完成此步骤，它很可能也无法维持**讨论→规划→执行**循环所需的结构化纪律。我们建议更换更强大的模型。
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: jm-forge:bootstrap
+name: jmf-bootstrap
 description: Ensure uv is installed and usable. Prompts for confirmation before installing. Run before other skills.
 ---
 
@@ -68,7 +68,7 @@ When this skill is invoked, the Agent should:
    ```bash
    uv run scripts/install-workspaces-skills.py --all
    ```
-   This installs all `jm-forge:*` skills to their respective target directories (`.claude/skills/`, `.gemini/skills/`, `.agents/skills/`).
+   This installs all `jmf-*` skills to their respective target directories (`.claude/skills/`, `.gemini/skills/`, `.agents/skills/`).
 4. **Update target project's AGENTS.md** — Append the following section:
 
 ```markdown
@@ -91,13 +91,13 @@ This project uses a **Discuss → Plan → Execute** workflow. See `.planning/wo
 ### Workflow Skills
 | Skill | Purpose |
 |-------|---------|
-| jm-forge:new | Create new task |
-| jm-forge:discuss | Discuss phase |
-| jm-forge:plan | Plan phase |
-| jm-forge:execute | Execute phase |
-| jm-forge:abandon | Abandon task |
-| jm-forge:list | List tasks |
-| jm-forge:status | Task details |
+| jmf-new | Create new task |
+| jmf-discuss | Discuss phase |
+| jmf-plan | Plan phase |
+| jmf-execute | Execute phase |
+| jmf-abandon | Abandon task |
+| jmf-list | List tasks |
+| jmf-status | Task details |
 
 ### Iteration Norms
 - **Append-only**: Documents only append, never overwrite
