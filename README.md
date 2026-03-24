@@ -195,8 +195,12 @@ The framework is **platform-independent** — it does not depend on any specific
 The simplest way to install jm-forge is to let your Agent bootstrap itself. Give your agent this prompt:
 
 ```
-Clone https://github.com/jiya-mira/jm-forge to a temporary directory,
-then analyze and run the install script to install the skills you need.
+Clone https://github.com/jiya-mira/jm-forge to a temporary directory.
+This is a skills-based Agent scaffolding framework with a Discuss→Plan→Execute
+workflow. Read scripts/install-workspaces-skills.py — it copies skill
+directories to platform-specific skill directories (e.g. .claude/skills/,
+.gemini/skills/, .agents/skills/). Choose your platform and install the
+skills you need.
 ```
 
 ---
