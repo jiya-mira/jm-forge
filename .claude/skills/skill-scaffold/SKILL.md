@@ -38,7 +38,7 @@ When user asks to create a skill:
    - If **No** (Agent-executed) → Create SKILL.md manually in `.claude/skills/<name>/`
 
 2. **If uncertain** → Ask user:
-   > "Does this skill need a Python script? Skills that only provide instructions to the Agent (like jm-forge-task-*) don't need Python. But if it runs CLI tools or scripts, Python is needed."
+   > "Does this skill need a Python script? Skills that only provide instructions to the Agent (like jm-forge:*) don't need Python. But if it runs CLI tools or scripts, Python is needed."
 
 ## Output (Python mode)
 
@@ -59,7 +59,7 @@ After creation:
 
 ## Requirements
 
-- Skill name: lowercase, hyphenated (e.g., `code-review`, `jm-forge-task-new`)
+- Skill name: lowercase, hyphenated (e.g., `code-review`, `jm-forge:new`)
 - No spaces or special characters
 
 ## Notes

@@ -22,7 +22,7 @@ Documents reference their sources as follows:
 |----|------|-------|----------|-------|
 | 1 | workflow-framework | Completed | — | |
 | 2 | jm-forge-bootstrap | Completed | — | |
-| 3 | jm-forge-task-* skills | Completed | — | jm-forge:new, :discuss, :plan, :execute, :abandon, :list, :status, :auto |
+| 3 | jm-forge:* skills | Completed | — | jm-forge:new, :discuss, :plan, :execute, :abandon, :list, :status, :auto |
 | 4 | skill-scaffold-v2 | Completed | — | skill-scaffold SKILL.md updated with Agent type decision flow |
 | 5 | doc-relationship-graph | Completed | — | Document reference conventions established |
 | 6 | task-concurrency-control | New | — | Prevent conflicts when user manages multiple tasks simultaneously |
@@ -35,6 +35,8 @@ Documents reference their sources as follows:
 | 13 | readme-redesign | Completed | — | Write comprehensive README for MVP release: methodology, theory, getting started |
 | 14 | mvp-release | Completed | — | Git repo initialized, commit 665058e created, tag v0.1.0 tagged, pending push |
 | 15 | readme-finalize | Completed | 13 | All 3 steps verified: Roadmap expanded, Dev Environment fixed, paper links added |
+| 16 | gemini-project-skill | Completed | — | 配置gemini对应的skill，使其可以以project级别的使用本工作流 |
+| 17 | skill-naming-standardization | Completed | — | jm-forge现存的skill以及未来的skill的命名规则问题，再次需要修正与规范化 |
 
 ---
 
