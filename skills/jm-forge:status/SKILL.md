@@ -12,13 +12,13 @@ Show detailed information about a specific task.
 ## Usage
 
 ```
-$jm-forge:status <task-id>
+$jm-forge-status <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge:status 3
+$jm-forge-status 3
 ```
 
 ## Input

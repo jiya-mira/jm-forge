@@ -12,13 +12,13 @@ Execute the plan for a task, verifying checkpoints and reporting results.
 ## Usage
 
 ```
-$jm-forge:execute <task-id>
+$jm-forge-execute <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge:execute 3
+$jm-forge-execute 3
 ```
 
 ## Input

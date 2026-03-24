@@ -12,13 +12,13 @@ Conduct the Plan phase for a task. Create an executable plan based on Discuss ou
 ## Usage
 
 ```
-$jm-forge:plan <task-id>
+$jm-forge-plan <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge:plan 3
+$jm-forge-plan 3
 ```
 
 ## Input

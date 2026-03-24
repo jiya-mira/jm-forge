@@ -12,7 +12,7 @@ Update an existing `PROJECT-MAP/` context map. Handles incremental maintenance a
 ## Usage
 
 ```
-$jm-forge:sync [--force-refresh] [--stale-threshold <days>]
+$jm-forge-sync [--force-refresh] [--stale-threshold <days>]
 ```
 
 **Flags:**

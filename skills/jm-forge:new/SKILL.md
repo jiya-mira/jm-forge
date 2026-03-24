@@ -12,14 +12,14 @@ Create a new task entry in the task registry.
 ## Usage
 
 ```
-$jm-forge:new <task-name> [--dependon <id>]
+$jm-forge-new <task-name> [--dependon <id>]
 ```
 
 Example:
 
 ```
-$jm-forge:new my-new-skill
-$jm-forge:new another-task --dependon 3
+$jm-forge-new my-new-skill
+$jm-forge-new another-task --dependon 3
 ```
 
 ## Input

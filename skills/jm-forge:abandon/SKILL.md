@@ -12,14 +12,14 @@ Mark an existing task as Abandoned.
 ## Usage
 
 ```
-$jm-forge:abandon <task-id> [--reason <text>]
+$jm-forge-abandon <task-id> [--reason <text>]
 ```
 
 Example:
 
 ```
-$jm-forge:abandon 3
-$jm-forge:abandon 3 --reason "用户改变主意"
+$jm-forge-abandon 3
+$jm-forge-abandon 3 --reason "用户改变主意"
 ```
 
 ## Input

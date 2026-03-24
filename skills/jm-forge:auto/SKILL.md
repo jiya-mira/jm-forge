@@ -12,13 +12,13 @@ Automatically advance a task based on its current state. Acts as a convenience w
 ## Usage
 
 ```
-$jm-forge:auto <task-id>
+$jm-forge-auto <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge:auto 3
+$jm-forge-auto 3
 ```
 
 ## Input

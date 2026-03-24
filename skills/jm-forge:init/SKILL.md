@@ -12,7 +12,7 @@ Analyze the current working directory and build a `PROJECT-MAP/` context map tha
 ## Usage
 
 ```
-$jm-forge:init
+$jm-forge-init
 ```
 
 - First-time only: creates PROJECT-MAP/ from scratch

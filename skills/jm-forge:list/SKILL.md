@@ -18,7 +18,7 @@ Read `.planning/TASK-REGISTRY.md` and display all tasks in a human-readable form
 Or as a skill invocation:
 
 ```
-$jm-forge:list
+$jm-forge-list
 ```
 
 ## Output

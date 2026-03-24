@@ -14,7 +14,7 @@ Resources are stored in `RESOURCE-MAP/resources.json`.
 ## Usage
 
 ```
-$jm-forge:resource <command> [options]
+$jm-forge-resource <command> [options]
 ```
 
 Commands:

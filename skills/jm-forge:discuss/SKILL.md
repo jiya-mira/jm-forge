@@ -12,13 +12,13 @@ Conduct the Discuss phase for a task. This defines the task before planning begi
 ## Usage
 
 ```
-$jm-forge:discuss <task-id>
+$jm-forge-discuss <task-id>
 ```
 
 Example:
 
 ```
-$jm-forge:discuss 3
+$jm-forge-discuss 3
 ```
 
 ## Input
