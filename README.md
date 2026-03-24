@@ -98,6 +98,8 @@ The framework **bootstraps itself**: every skill is documented in `SKILL.md`, an
 | Iterative Development / 迭代开发 | [Kent Beck](https://en.wikipedia.org/wiki/Iterative_and_incremental_development) | Incremental improvement / 增量改进 |
 | OODA Loop | [Boyd, *OODA Loop*](https://en.wikipedia.org/wiki/OODA_loop) | Observe-Orient-Decide-Act cycle / 观察-定向-决策-行动循环 |
 | Agent Architecture / Agent 架构 | [Russell & Norvig, *AI: A Modern Approach*](https://en.wikipedia.org/wiki/Intelligent_agent) | Agent-environment interaction / Agent-环境交互 |
+| Wicked Problems / 棘手问题 | [Rittel & Webber](https://en.wikipedia.org/wiki/Wicked_problem) | Goals discovered through investigation, not defined in advance / 目标通过调查研究发现，而非预先定义 |
+| Double Loop Learning / 双环学习 | [Argyris & Schön](https://en.wikipedia.org/wiki/Double-loop_learning) | Question assumptions, not just fix behavior / 质疑假设，而非仅修正行为 |
 
 ---
 
@@ -245,4 +247,4 @@ Contributors whose ideas, reports, or critiques are adopted will be credited in 
 
 ---
 
-*Last updated: 2026-03-23*
+*Last updated: 2026-03-24*
