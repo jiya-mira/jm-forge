@@ -29,6 +29,11 @@ Thumbs.db
 *.swp
 *.swo
 
+# Agent-specific (not framework files)
+.agents/
+.claude/
+.gemini/
+
 # Temporary
 *.tmp
 *.temp
