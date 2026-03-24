@@ -9,6 +9,22 @@ description: Conduct the Discuss phase for a task. Define goal, boundary, assump
 
 Conduct the Discuss phase for a task. This defines the task before planning begins.
 
+## Core Principles
+
+### Goal Clarification is Upstream
+
+Discuss phase is primarily about understanding **what we are trying to achieve**. The output of Discuss — the Goal — determines what Plan and Execute will contain.
+
+### Goal Clarification is Dynamic
+
+The goal may evolve during discuss/plan/execute. This is **normal**, not a planning failure. If the goal changes, record it and confirm with the user before proceeding.
+
+### Split Detection: Uncertainty Questioning Principle
+
+- Do not use hardcoded trigger conditions
+- When the Agent feels uncertain about whether something belongs to this task or should be a separate task, stop and ask the user
+- **Agent's responsibility: feels uncertain → stop and ask**
+
 ## Usage
 
 ```
@@ -42,13 +58,23 @@ $jm-forge:discuss 3
 
 ### 2. Conduct Discuss Phase
 
-Use structured prompting with these elements:
-
 **Interaction mode declaration:**
 > "Mode: mandatory_response. I'll present choices and wait for your input before proceeding."
 
-**Discuss elements (in order):**
-1. **Goal** — What are we trying to achieve?
+**Iteration 0: Goal Clarification** (must be first)
+
+Before analyzing the problem itself, first confirm the goal:
+
+1. **Original Feedback**: Record the raw user input exactly as provided
+2. **Clarifying Questions**:
+   - What is the goal of this task?
+   - What does success look like?
+   - Any constraints or priorities?
+3. **User Response**: Wait for user input before proceeding
+
+**Subsequent Iterations**: After Goal Clarification is confirmed, proceed with structured analysis:
+
+1. **Goal** — What are we trying to achieve? (Should align with Iteration 0)
 2. **Boundary** — What's in scope vs out of scope?
 3. **Assumptions** — What are we taking as given?
 4. **Acceptance Criteria** — How do we know when we're done?
@@ -56,13 +82,35 @@ Use structured prompting with these elements:
 
 **Termination condition:** All open issues are classified as non-blocking.
 
-### 3. Document
+### 3. Split Detection During Discuss
+
+At any point during discuss, if the Agent feels uncertain whether:
+- Two reported issues are actually the same problem or different problems
+- The current task should be split into multiple tasks
+- This task should be merged with another
+
+The Agent should:
+1. Append a Split Detection iteration to `discuss-log.md`
+2. Present options to the user:
+   - Option A: Continue in current task
+   - Option B: Split out and create new task(s)
+   - Option C: Other
+3. Wait for user confirmation before proceeding
+
+### 4. Goal Evolution
+
+If during discuss the Agent realizes the goal has evolved from what was recorded in Iteration 0:
+1. Record the new goal
+2. Present it to the user for confirmation
+3. Do not proceed with planning until the goal is confirmed
+
+### 5. Document
 
 After each key decision, write to `.planning/<task-name>/discuss.md` and append to `discuss-log.md`.
 
 **Source references:** Only on key conclusions (Conclusion, Key Decisions, resolved Open Issues).
 
-### 4. Completion
+### 6. Completion
 
 When all open issues are non-blocking:
 - Update TASK-REGISTRY.md state to `Planning`
@@ -91,8 +139,25 @@ User can abandon the discuss at any time by saying "stop" or "pause". Task state
 
 ### Iteration Recording Format
 
-When iterating, append to `discuss-log.md`:
+**Goal Clarification iteration:**
+```markdown
+## Iteration 0 - Goal Clarification
 
+**Date:** YYYY-MM-DD
+
+### Original Feedback
+(Raw user input, preserved exactly)
+
+### Clarifying Questions
+1. What is the goal of this task?
+2. What does success look like?
+3. Any constraints or priorities?
+
+### User Response
+**Waiting for user input...**
+```
+
+**Standard iteration:**
 ```markdown
 ## Iteration N
 
@@ -102,8 +167,26 @@ When iterating, append to `discuss-log.md`:
 **Conclusion:** ...
 ```
 
+**Split Detection iteration:**
+```markdown
+## Iteration N - Split Detection
+
+**Date:** YYYY-MM-DD
+
+### Uncertainty Point
+(What the Agent is uncertain about)
+
+### Suggested Actions
+- Option A: Continue in current task
+- Option B: Split out and create new task(s)
+- Option C: Other
+
+**Waiting for user confirmation...**
+```
+
 ## Notes
 
 - Uses templates from `.planning/templates/discuss.md`
 - Agent leads with structured prompting; user assists via choices
 - User controls iteration — unlimited rounds before crossing to Plan
+- **Goal Clarification is the mandatory first iteration** — do not skip to problem analysis before confirming the goal

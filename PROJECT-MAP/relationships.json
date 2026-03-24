@@ -66,6 +66,62 @@
       "type": "implements",
       "confidence": "high",
       "note": "Naming convention implements workflow-framework structure"
+    },
+    {
+      "from": "domain-agent-install-scripts",
+      "to": "gemini-project-skill",
+      "type": "builds-on",
+      "confidence": "high",
+      "note": "Install scripts automate gemini-project-skill configuration"
+    },
+    {
+      "from": "domain-agent-install-scripts",
+      "to": "codex-project-skill",
+      "type": "builds-on",
+      "confidence": "high",
+      "note": "Install scripts automate codex-project-skill configuration"
+    },
+    {
+      "from": "domain-workflow-iteration-norms",
+      "to": "domain-workflow-framework",
+      "type": "extends",
+      "confidence": "high",
+      "note": "Iteration norms extend workflow-framework with phase transition rules"
+    },
+    {
+      "from": "domain-workflow-iteration-norms",
+      "to": "domain-task-management",
+      "type": "refines",
+      "confidence": "high",
+      "note": "Iteration norms refine task-management skills for practical use"
+    },
+    {
+      "from": "domain-bootstrap-iteration-optimization",
+      "to": "domain-bootstrap",
+      "type": "optimizes",
+      "confidence": "high",
+      "note": "Bootstrap iteration optimization improves bootstrap workflow"
+    },
+    {
+      "from": "domain-bootstrap-iteration-optimization",
+      "to": "domain-skill-scaffold",
+      "type": "optimizes",
+      "confidence": "high",
+      "note": "Bootstrap iteration optimization may refines skill-scaffold"
+    },
+    {
+      "from": "domain-bootstrap-iteration-optimization",
+      "to": "workflow-iteration-norms",
+      "type": "applies",
+      "confidence": "high",
+      "note": "Applies iteration norms to bootstrap process itself"
+    },
+    {
+      "from": "task-22",
+      "to": "domain-task-management",
+      "type": "analyzes",
+      "confidence": "high",
+      "note": "Task 22 analyzes jm-forge:new skill UX using racobit case study"
     }
   ]
 }

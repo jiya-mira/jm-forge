@@ -29,11 +29,15 @@ $jm-forge:new another-task --dependon 3
 
 ## Behavior
 
-1. **Determine next ID**: Read `.planning/TASK-REGISTRY.md`, find max ID, use next integer
-2. **Create task directory**: Create `.planning/<task-name>/` directory
-3. **Update TASK-REGISTRY.md**: Add new row with id, name, state=New, Dependon
-4. **Create initial discuss-log.md**: With Iteration 1 noting task creation
-5. **Update PROJECT-MAP/**: If `PROJECT-MAP/` exists, append new task node to `domains.json` (type: Domain, path: `.planning/<task-name>/`) and add relationship edge if parent domain exists
+1. **Record Original Description**: Preserve the user's raw input exactly as provided (do not pre-process or interpret)
+2. **Goal Clarification (Initial)**: Ask the user:
+   - "What is the goal of this task?"
+   - "Is this related to an existing task?"
+3. **Determine next ID**: Read `.planning/TASK-REGISTRY.md`, find max ID, use next integer
+4. **Create task directory**: Create `.planning/<task-name>/` directory
+5. **Update TASK-REGISTRY.md**: Add new row with id, name, state=New, Dependon
+6. **Create initial discuss-log.md**: With Iteration 0 (Goal Clarification) based on user's responses
+7. **Update PROJECT-MAP/**: If `PROJECT-MAP/` exists, append new task node to `domains.json` (type: Domain, path: `.planning/<task-name>/`) and add relationship edge if parent domain exists
 
 ## Output
 
@@ -41,6 +45,8 @@ $jm-forge:new another-task --dependon 3
 - Task name
 - Dependon status (if any)
 - Location of task directory
+- Recorded original description
+- Preliminary Goal Clarification (as provided by user)
 
 ## Error Handling
 
@@ -51,3 +57,5 @@ $jm-forge:new another-task --dependon 3
 
 - State is always `New` when created via this skill
 - To move a task from New to Discussing, use `jm-forge:discuss`
+- **Goal Clarification is dynamic**: The goal may evolve during discuss/plan/execute. This is normal, not a planning failure.
+- **Split Detection awareness**: If uncertain whether this task should be split or merged with an existing one, prompt the user to use `jm-forge:discuss` for further clarification.

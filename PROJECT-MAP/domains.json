@@ -48,6 +48,42 @@
       "description": "Finalize README before MVP publish: clarify Roadmap, Development Environment, Theoretical Foundations links.",
       "tags": ["documentation", "readme", "mvp"],
       "relationships": ["readme-redesign"]
+    },
+    {
+      "id": "domain-agent-install-scripts",
+      "name": "agent-install-scripts",
+      "type": "Domain",
+      "path": ".planning/agent-install-scripts/",
+      "description": "Unified installation scripts for Workspace Skills across multiple agents: Claude, Gemini, Codex.",
+      "tags": ["installation", "scripts", "workspace-skills", "multi-agent"],
+      "relationships": ["gemini-project-skill", "codex-project-skill"]
+    },
+    {
+      "id": "domain-workflow-iteration-norms",
+      "name": "workflow-iteration-norms",
+      "type": "Domain",
+      "path": ".planning/workflow-iteration-norms/",
+      "description": "研究并规范化工作流迭代规范，结合理论、项目管理经验与Agent实践经验，解决阶段边界模糊问题。",
+      "tags": ["workflow", "iteration", "norms", "phase-boundaries"],
+      "relationships": ["domain-workflow-framework", "domain-task-management"]
+    },
+    {
+      "id": "domain-bootstrap-iteration-optimization",
+      "name": "bootstrap-iteration-optimization",
+      "type": "Domain",
+      "path": ".planning/bootstrap-iteration-optimization/",
+      "description": "本系列skill开发的自举迭代流程的优化和调整。",
+      "tags": ["bootstrap", "iteration", "optimization", "self-development"],
+      "relationships": ["domain-bootstrap", "domain-skill-scaffold", "workflow-iteration-norms"]
+    },
+    {
+      "id": "task-22",
+      "name": "analyze-jm-forge-new-skill-ux",
+      "type": "Domain",
+      "path": ".planning/analyze-jm-forge-new-skill-ux/",
+      "description": "场景分析：基于racobit案例研究jm-forge:new的UX优化方向",
+      "tags": ["analysis", "ux", "jm-forge:new"],
+      "relationships": ["domain-task-management"]
     }
   ]
 }
