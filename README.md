@@ -196,8 +196,7 @@ The simplest way to install jm-forge is to let your Agent bootstrap itself. Give
 
 ```
 Clone https://github.com/jiya-mira/jm-forge to a temporary directory,
-run `uv run scripts/install-workspaces-skills.py` there, then copy the
-installed skills to your workspace's platform skill directory.
+then analyze and run the install script to install the skills you need.
 ```
 
 ---
