@@ -3,7 +3,7 @@ name: jmf-plan
 description: Conduct the Plan phase for a task. Create step decomposition and checkpoints.
 ---
 
-# Skill: jm-forge-plan
+# Skill: jmf-plan
 
 ## Purpose
 
@@ -107,8 +107,10 @@ Write to `.planning/<task-name>/plan.md` using the following template:
 
 When plan is complete:
 - Update TASK-REGISTRY.md state to `Pending`
-- Present plan summary to user
+- Present plan summary to user with **Task #\<id\>**: **\<task-name\>** prominently displayed
 - Offer to proceed to Execute phase
+
+Example: "**Task #24: manual-mode-prompt-ux** — Plan complete. Ready for Execute."
 
 ## Exit Points
 

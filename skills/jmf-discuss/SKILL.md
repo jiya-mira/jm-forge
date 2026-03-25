@@ -3,7 +3,7 @@ name: jmf-discuss
 description: Conduct the Discuss phase for a task. Define goal, boundary, assumptions, and acceptance criteria.
 ---
 
-# Skill: jm-forge-discuss
+# Skill: jmf-discuss
 
 ## Purpose
 
@@ -141,8 +141,10 @@ id: <task-id>
 
 When all open issues are non-blocking:
 - Update TASK-REGISTRY.md state to `Planning`
-- Present summary to user
+- Present summary to user with **Task #\<id\>**: **\<task-name\>** prominently displayed
 - Offer to proceed to Plan phase
+
+Example: "**Task #24: manual-mode-prompt-ux** — Discuss complete. Ready for Plan."
 
 ## Exit Points
 

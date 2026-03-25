@@ -3,7 +3,7 @@ name: jmf-status
 description: Show detailed status for a specific task including its discuss.md, plan.md, and execute.md if they exist.
 ---
 
-# Skill: jm-forge-status
+# Skill: jmf-status
 
 ## Purpose
 
@@ -28,7 +28,7 @@ $jmf-status 3
 ## Output
 
 Displays:
-1. **Task header**: ID, name, state, Dependon
+1. **Task header**: **Task #\<id\>**: **\<name\>** — state: \<state\>, Dependon: \<Dependon-or-dash\>
 2. **Phase files**: If discuss.md exists, show goal and open issues count
 3. **Plan summary**: If plan.md exists, show step count and checkpoint count
 4. **Execute summary**: If execute.md exists, show checkpoint results and final state

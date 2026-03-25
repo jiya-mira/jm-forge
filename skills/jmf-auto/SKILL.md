@@ -3,7 +3,7 @@ name: jmf-auto
 description: Automatically advance a task to its next logical state. Reads current state and proceeds accordingly.
 ---
 
-# Skill: jm-forge-auto
+# Skill: jmf-auto
 
 ## Purpose
 
@@ -62,16 +62,18 @@ Auto stops when:
 
 ### 4. Progress Reporting
 
-After each state transition, report:
+After each state transition, report with **Task #\<id\>**: **\<task-name\>** prominently displayed:
 - Previous state → New state
 - What action was taken
-- Current position (e.g., "Step 2 of 5, Checkpoint 3 verified")
+- Current position (e.g., "[Task #24] Discussing → Planning — Discuss complete. Ready for Plan.")
 
 ## Interaction Modes
 
-When the task needs user input during auto-execution:
+When the task needs user input during auto-execution, include **Task #\<id\>**: **\<task-name\>** in the prompt:
 - Present the question with structured options
 - Wait for user response
+
+Example: "[Task #24] Stopped — Awaiting your input on blocking issue."
 - Continue after response
 
 ## Notes

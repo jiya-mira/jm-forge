@@ -42,6 +42,8 @@ Documents reference their sources as follows:
 | 20 | workflow-iteration-norms | Completed | — | 结合理论、项目管理经验与Agent实践经验，研究并规范化工作流迭代规范 |
 | 21 | bootstrap-iteration-optimization | Completed | — | 本系列skill开发的自举迭代流程的优化和调整 |
 | 22 | analyze-jm-forge-new-skill-ux | Completed | — | 场景分析：基于racobit案例研究jmf-new的UX优化方向 |
+| 23 | jmf-task-lifecycle | Completed | — | 任务生命周期管理：处理历史无意义task，减少agent困扰和token浪费 |
+| 24 | manual-mode-prompt-ux | Completed | — | 手动模式或半自动模式下每次任务回报时的用户提示问题 |
 
 ---
 

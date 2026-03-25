@@ -84,6 +84,15 @@
       "description": "场景分析：基于racobit案例研究jm-forge:new的UX优化方向",
       "tags": ["analysis", "ux", "jm-forge:new"],
       "relationships": ["domain-task-management"]
+    },
+    {
+      "id": "task-24",
+      "name": "manual-mode-prompt-ux",
+      "type": "Domain",
+      "path": ".planning/manual-mode-prompt-ux/",
+      "description": "手动模式或半自动模式下每次任务回报时的用户提示问题",
+      "tags": ["ux", "prompting", "manual-mode", "semi-automatic"],
+      "relationships": ["domain-task-management"]
     }
   ]
 }

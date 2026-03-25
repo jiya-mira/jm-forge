@@ -3,7 +3,7 @@ name: jmf-execute
 description: Execute the plan for a task. Verify checkpoints and report results.
 ---
 
-# Skill: jm-forge-execute
+# Skill: jmf-execute
 
 ## Purpose
 
@@ -35,7 +35,8 @@ $jmf-execute 3
 ### 1. Setup
 1. Read TASK-REGISTRY.md, confirm task exists
 2. Set task state to `Active`
-3. Read plan from `.planning/<task-name>/plan.md`
+3. Present **Task #\<id\>**: **\<task-name\>** header when starting execute
+4. Read plan from `.planning/<task-name>/plan.md`
 
 ### 2. Execute Steps
 
@@ -43,7 +44,7 @@ Execute steps sequentially, following the dependency order in Plan.
 
 **Checkpoint reporting format:**
 ```
-[Checkpoint N: <name>]
+[Task #<id> | Checkpoint N: <name>]
 Status: ✅ Verified / ❌ Failed
 Evidence: <what was observed>
 ```
@@ -75,7 +76,7 @@ On checkpoint failure:
 Write to `.planning/<task-name>/execute.md` using the following template:
 
 ```markdown
-# Execute — <task-name>
+# Execute — Task #<id>: <task-name>
 
 **Date:** <YYYY-MM-DD>
 **Source:** plan.md
