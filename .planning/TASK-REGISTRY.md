@@ -44,6 +44,8 @@ Documents reference their sources as follows:
 | 22 | analyze-jm-forge-new-skill-ux | Completed | — | 场景分析：基于racobit案例研究jmf-new的UX优化方向 |
 | 23 | jmf-task-lifecycle | Completed | — | 任务生命周期管理：处理历史无意义task，减少agent困扰和token浪费 |
 | 24 | manual-mode-prompt-ux | Completed | — | 手动模式或半自动模式下每次任务回报时的用户提示问题 |
+| 25 | exp-system | Completed | 24 | 构建经验体系；以racobit实战案例作为分析素材 |
+| 26 | non-jmf-skill-replanning | Completed | — | 重新规划和调整非 jmf-* 命名的 skill |
 
 ---
 

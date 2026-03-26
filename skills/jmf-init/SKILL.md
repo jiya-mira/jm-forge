@@ -3,7 +3,7 @@ name: jmf-init
 description: Analyze the current project and build a PROJECT-MAP context map. Run when introducing jm-forge to an existing project, or when --refresh is needed.
 ---
 
-# Skill: jm-forge-init
+# Skill: jmf-init
 
 ## Purpose
 

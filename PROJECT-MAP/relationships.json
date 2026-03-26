@@ -26,6 +26,20 @@
       "note": "AGENTS.md contains skill registration instructions"
     },
     {
+      "from": "entry-skills-manifest",
+      "to": "domain-jmf-exp",
+      "type": "contains",
+      "confidence": "high",
+      "note": "skills/manifest.json now registers the jmf-exp skill"
+    },
+    {
+      "from": "entry-skills-manifest",
+      "to": "domain-workflow-execute",
+      "type": "contains",
+      "confidence": "high",
+      "note": "skills/manifest.json also registers the thin workflow-execute router"
+    },
+    {
       "from": "entry-registry",
       "to": "domain-workflow-framework",
       "type": "references",
@@ -47,7 +61,21 @@
       "note": "Task skills implement the workflow-framework conventions"
     },
     {
-      "from": "domain-bootstrap",
+      "from": "domain-jmf-exp",
+      "to": "domain-task-management",
+      "type": "builds-on",
+      "confidence": "high",
+      "note": "jmf-exp consumes task artifacts produced by the workflow skills"
+    },
+    {
+      "from": "domain-workflow-execute",
+      "to": "domain-task-management",
+      "type": "builds-on",
+      "confidence": "high",
+      "note": "workflow-execute delegates workflow actions to the jmf-* task skills"
+    },
+    {
+      "from": "domain-jmf-bootstrap",
       "to": "domain-skill-scaffold",
       "type": "references",
       "confidence": "medium",
@@ -97,7 +125,7 @@
     },
     {
       "from": "domain-bootstrap-iteration-optimization",
-      "to": "domain-bootstrap",
+      "to": "domain-jmf-bootstrap",
       "type": "optimizes",
       "confidence": "high",
       "note": "Bootstrap iteration optimization improves bootstrap workflow"
@@ -122,6 +150,13 @@
       "type": "analyzes",
       "confidence": "high",
       "note": "Task 22 analyzes jm-forge:new skill UX using racobit case study"
+    },
+    {
+      "from": "task-26",
+      "to": "domain-task-management",
+      "type": "analyzes",
+      "confidence": "high",
+      "note": "Task 26 replans non-jmf skill naming and adjustment strategy"
     }
   ]
 }

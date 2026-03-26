@@ -5,22 +5,40 @@
   "$schema": "jm-forge:project-map:v1",
   "nodes": [
     {
-      "id": "domain-bootstrap",
-      "name": "jm-forge-bootstrap",
+      "id": "domain-jmf-bootstrap",
+      "name": "jmf-bootstrap",
       "type": "Domain",
-      "path": "skills/jm-forge-bootstrap/",
+      "path": "skills/jmf-bootstrap/",
       "description": "Ensures uv is installed and usable. The entry skill for new environments.",
       "tags": ["bootstrap", "environment", "uv"],
       "relationships": ["skill-scaffold", "AGENTS"]
+    },
+    {
+      "id": "domain-jmf-exp",
+      "name": "jmf-exp",
+      "type": "Domain",
+      "path": "skills/jmf-exp/",
+      "description": "Extracts structured experience records from real task attempts and task artifacts.",
+      "tags": ["experience", "exp", "reuse", "markdown"],
+      "relationships": ["domain-task-management", "AGENTS"]
     },
     {
       "id": "domain-skill-scaffold",
       "name": "skill-scaffold",
       "type": "Domain",
       "path": "skills/skill-scaffold/",
-      "description": "Internal skill for generating new skills. Uses Agent type decision flow.",
+      "description": "Internal build-time helper for generating new skills. Uses Agent type decision flow.",
       "tags": ["scaffolding", "skill-generation"],
       "relationships": ["skill-scaffold-v2-plan"]
+    },
+    {
+      "id": "domain-workflow-execute",
+      "name": "workflow-execute",
+      "type": "Domain",
+      "path": "skills/workflow-execute/",
+      "description": "Thin router / bootstrap entry that delegates workflow actions to jmf-* skills.",
+      "tags": ["workflow", "router", "bootstrap", "thin-entry"],
+      "relationships": ["domain-task-management", "AGENTS"]
     },
     {
       "id": "domain-task-management",
@@ -74,15 +92,15 @@
       "path": ".planning/bootstrap-iteration-optimization/",
       "description": "本系列skill开发的自举迭代流程的优化和调整。",
       "tags": ["bootstrap", "iteration", "optimization", "self-development"],
-      "relationships": ["domain-bootstrap", "domain-skill-scaffold", "workflow-iteration-norms"]
+      "relationships": ["domain-jmf-bootstrap", "domain-skill-scaffold", "workflow-iteration-norms"]
     },
     {
       "id": "task-22",
       "name": "analyze-jm-forge-new-skill-ux",
       "type": "Domain",
       "path": ".planning/analyze-jm-forge-new-skill-ux/",
-      "description": "场景分析：基于racobit案例研究jm-forge:new的UX优化方向",
-      "tags": ["analysis", "ux", "jm-forge:new"],
+      "description": "场景分析：基于racobit案例研究jmf-new的UX优化方向",
+      "tags": ["analysis", "ux", "jmf-new"],
       "relationships": ["domain-task-management"]
     },
     {
@@ -92,6 +110,15 @@
       "path": ".planning/manual-mode-prompt-ux/",
       "description": "手动模式或半自动模式下每次任务回报时的用户提示问题",
       "tags": ["ux", "prompting", "manual-mode", "semi-automatic"],
+      "relationships": ["domain-task-management"]
+    },
+    {
+      "id": "task-26",
+      "name": "non-jmf-skill-replanning",
+      "type": "Domain",
+      "path": ".planning/non-jmf-skill-replanning/",
+      "description": "重新规划和调整非 jmf-* 命名的 skill。",
+      "tags": ["skills", "naming", "replanning", "standardization"],
       "relationships": ["domain-task-management"]
     }
   ]

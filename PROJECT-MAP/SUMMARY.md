@@ -4,7 +4,7 @@
 
 **Project:** jm-forge
 **Type:** framework
-**Last Updated:** 2026-03-23
+**Last Updated:** 2026-03-26
 
 ---
 
@@ -24,8 +24,10 @@
 
 | Domain | Path | Description |
 |--------|------|-------------|
-| `jm-forge-bootstrap` | `skills/jm-forge-bootstrap/` | Ensures uv is installed. Entry skill for new environments. |
+| `jmf-bootstrap` | `skills/jmf-bootstrap/` | Ensures uv is installed. Entry skill for new environments. |
+| `jmf-exp` | `skills/jmf-exp/` | Extracts structured experience records from real task attempts and task artifacts. |
 | `skill-scaffold` | `skills/skill-scaffold/` | Generates new skills. Uses Agent type decision flow. |
+| `workflow-execute` | `skills/workflow-execute/` | Thin router / bootstrap entry for the D→P→E workflow. |
 | `task-management` | `.claude/skills/` | Core workflow skills: new, discuss, plan, execute, status, list, abandon, auto. |
 | `workflow-framework` | `.planning/workflow-framework/` | Discuss→Plan→Execute workflow definition. |
 
@@ -50,13 +52,21 @@ AGENTS.md
 ├── references → workflow-framework.md
 └── contains → manifest.json
 
+skills/manifest.json
+├── contains → jmf-exp
+├── contains → workflow-execute
+└── contains → other registered skills
+
 TASK-REGISTRY.md
 ├── references → workflow-framework/
 └── contains → task-management/
 
+skills/manifest.json → contains → jmf-exp
+skills/manifest.json → contains → workflow-execute
 task-management/ → builds-on → workflow-framework/
-bootstrap → references → skill-scaffold
+jmf-bootstrap → references → skill-scaffold
 skill-scaffold → references → templates/
+workflow-execute → delegates → task-management/
 skill-naming-convention.md → implements → workflow-framework/
 ```
 

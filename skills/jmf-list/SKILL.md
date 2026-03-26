@@ -3,7 +3,7 @@ name: jmf-list
 description: List all tasks from TASK-REGISTRY.md with their IDs, states, and dependencies.
 ---
 
-# Skill: jm-forge-list
+# Skill: jmf-list
 
 ## Purpose
 

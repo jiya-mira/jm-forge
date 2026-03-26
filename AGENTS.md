@@ -29,14 +29,15 @@ forge/
 ├── .claude/skills/                # Claude Code discovery (actual files)
 │   ├── jmf-*/               # All jmf-* skills
 │   │   └── SKILL.md
-│   ├── skill-scaffold/
+│   ├── skill-scaffold/            # Internal build-time helper
 │   │   └── SKILL.md
-│   └── workflow-execute/
+│   └── workflow-execute/          # Thin router / bootstrap entry
 │       └── SKILL.md
 ├── skills/                        # Canonical source (cross-platform)
 │   ├── manifest.json              # Index of all skills
 │   ├── jmf-bootstrap/
-│   └── skill-scaffold/
+│   ├── skill-scaffold/
+│   └── workflow-execute/
 ├── PROJECT-MAP/                   # Project context map (created by jmf-init)
 ├── .planning/                     # Task planning directories
 ├── AGENTS.md                      # This file
@@ -46,9 +47,9 @@ forge/
 **Note:** `RESOURCE-MAP/` is project-local (gitignored) — managed by `jmf-resource` but not part of framework distribution.
 
 **Skill naming conventions:**
-- `skill-scaffold` — internal framework skill (no prefix)
+- `skill-scaffold` — internal framework build-time helper (no prefix)
 - `jmf-*` — publishable skills ready for distribution
-- `workflow-execute` — workflow orchestration skill
+- `workflow-execute` — thin router / bootstrap entry for the workflow
 
 **Claude Code integration:**
 - Skills are discovered via `.claude/skills/<skill-name>/SKILL.md`
@@ -79,6 +80,12 @@ Before using any skill, ensure `uv` is installed. See `skills/jmf-bootstrap/SKIL
 - **Framework evolves with usage**: The AGENTS.md is updated when new patterns solidify
 - **Self-referential**: Skills may invoke other skills to build new capabilities
 - **Validation-first**: Each skill must prove itself before being relied upon
+
+### Non-jmf Skill Boundary
+
+- `workflow-execute` is the only retained non-`jmf-*` runtime/router entry
+- `skill-scaffold` is an internal build-time helper and should not be treated as a user-facing runtime skill
+- All other runtime workflow behavior belongs in `jmf-*` skills
 
 ### Skill Registration
 
@@ -154,6 +161,7 @@ When a user expresses intent that satisfies all four conditions above, the workf
 | `jmf-init` | Analyze project and build PROJECT-MAP |
 | `jmf-sync` | Update existing PROJECT-MAP |
 | `jmf-resource` | Manage project resources (add/list/remove) |
+| `workflow-execute` | Thin router for the D→P→E workflow entry |
 
 ### Workflow States
 

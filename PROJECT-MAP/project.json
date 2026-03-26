@@ -9,8 +9,10 @@
   "description": "A skills-based Agent scaffolding framework — meta-engineering project combining modern software engineering theories with multi-Agent collaboration patterns. Uses D→P→E (Discuss→Plan→Execute) workflow for task management.",
 
   "domains": [
-    "jm-forge-bootstrap",
+    "jmf-bootstrap",
+    "jmf-exp",
     "skill-scaffold",
+    "workflow-execute",
     "task-management",
     "workflow-framework"
   ],
@@ -20,6 +22,6 @@
   "isCollection": false,
 
   "createdAt": "2026-03-23",
-  "lastUpdated": "2026-03-23",
+  "lastUpdated": "2026-03-26",
   "mapperVersion": "1.0"
 }

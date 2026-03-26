@@ -3,7 +3,7 @@ name: jmf-new
 description: Create a new task and add it to TASK-REGISTRY.md with state New.
 ---
 
-# Skill: jm-forge-new
+# Skill: jmf-new
 
 ## Purpose
 

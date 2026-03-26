@@ -3,7 +3,7 @@ name: jmf-bootstrap
 description: Ensure uv is installed and usable. Prompts for confirmation before installing. Run before other skills.
 ---
 
-# Skill: jm-forge-bootstrap
+# Skill: jmf-bootstrap
 
 ## Purpose
 

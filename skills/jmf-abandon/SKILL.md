@@ -3,7 +3,7 @@ name: jmf-abandon
 description: Mark a task as Abandoned. This is a user-initiated action only.
 ---
 
-# Skill: jm-forge-abandon
+# Skill: jmf-abandon
 
 ## Purpose
 

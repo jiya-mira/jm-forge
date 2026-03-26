@@ -3,7 +3,7 @@ name: jmf-resource
 description: Manage project resources (entities, assets, equipment, organizations). Use to add, list, or remove resources managed by the project.
 ---
 
-# Skill: jm-forge-resource
+# Skill: jmf-resource
 
 ## Purpose
 

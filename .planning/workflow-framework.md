@@ -143,7 +143,40 @@ To resume a Pending task:
 
 ---
 
-## 5. Open Questions
+## 5. Goal Conflict Detection
+
+### Trigger Condition
+
+当task的goal发生**significant变化**时（goal的核心意图发生了改变，不是措辞微调），触发冲突检测。
+
+### When to Trigger
+
+- **jmf-new**: 初版goal形成后
+- **jmf-discuss**: goal被明确或调整后
+- **jmf-plan**: goal被确认后（仅当goal发生了significant变化）
+
+### Detection Process
+
+1. Agent读取TASK-REGISTRY.md中所有**Completed**状态的task的goal
+2. Agent判断当前task的goal是否与已有goal冲突
+3. 如有冲突，提示用户：
+   > "⚠️ 检测到goal冲突：当前goal与task [N] ([task-name]) 的goal可能重复/冲突。请确认是否继续。"
+
+### Archive After Conflict Resolution
+
+当冲突task决定被放弃时：
+- 标记为`Abandoned`状态
+- 保留在TASK-REGISTRY.md中供历史参考
+- 用户可手动决定是否需要额外存档
+
+### Reference
+
+各skill（jmf-new, jmf-discuss, jmf-plan）引用此规则：
+> "当goal发生significant变化时，按照workflow-framework.md中的goal冲突检测规则执行"
+
+---
+
+## 6. Open Questions
 
 - [x] Execute phase structure — Resolved: Entry/Execution/Checkpoint/Failure/Termination/Output defined
 - [ ] Task naming conventions
@@ -152,7 +185,7 @@ To resume a Pending task:
 
 ---
 
-## 6. Background: Why This Framework Exists
+## 7. Background: Why This Framework Exists
 
 This framework is being built to enable a **skill development framework** where:
 - Skills are reusable, project-level components
@@ -164,7 +197,7 @@ This framework is being built to enable a **skill development framework** where:
 
 ---
 
-## 7. Key Theoretical Influences
+## 8. Key Theoretical Influences
 
 | Concept | Source | Role in Framework |
 |---------|--------|-------------------|

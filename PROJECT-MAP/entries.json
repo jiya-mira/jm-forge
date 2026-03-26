@@ -38,7 +38,7 @@
       "path": "skills/manifest.json",
       "description": "Index of all skills. Cross-platform canonical source.",
       "tags": ["entry", "skills", "manifest"],
-      "relationships": ["domain-skill-scaffold", "domain-bootstrap"]
+      "relationships": ["domain-skill-scaffold", "domain-jmf-bootstrap", "domain-workflow-execute"]
     }
   ]
 }

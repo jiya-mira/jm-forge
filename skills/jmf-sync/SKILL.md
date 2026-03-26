@@ -3,7 +3,7 @@ name: jmf-sync
 description: Update an existing PROJECT-MAP. Use --force-refresh for full rebuild, or default for incremental sync.
 ---
 
-# Skill: jm-forge-sync
+# Skill: jmf-sync
 
 ## Purpose
 
