@@ -191,7 +191,7 @@ This framework is being built to enable a **skill development framework** where:
 - Skills are reusable, project-level components
 - The framework itself is general-purpose (not tied to jiya·mira specifically)
 - Development follows the workflow defined herein
-- Theoretical basis is explicit (see `.planning/workflow-framework/references.md`)
+- Theoretical basis is explicit (see `.workspace/tasks/001-workflow-framework/references.md`)
 
 > **Note on theoretical basis:** The framework synthesizes established concepts (WBS, PDCA, GQM, V&V) with first-principles reasoning. Formal citations are documented in references.md.
 
@@ -211,6 +211,6 @@ This framework is being built to enable a **skill development framework** where:
 ## Next Steps
 
 1. ~~Define Execute phase structure~~ ✅ Done
-2. ~~Document the theoretical references~~ ✅ Done — see `.planning/workflow-framework/references.md`
+2. ~~Document the theoretical references~~ ✅ Done — see `.workspace/tasks/001-workflow-framework/references.md`
 3. ~~Test the Discuss → Plan flow with a real task~~ ✅ Done — jm-forge-bootstrap validated
 4. ~~Finalize documentation structure~~ ✅ Done — templates in `.planning/templates/`

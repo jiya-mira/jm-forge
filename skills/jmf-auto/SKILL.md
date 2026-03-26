@@ -41,7 +41,7 @@ $jmf-auto 3
 ## Behavior
 
 ### 1. Read Current State
-1. Read TASK-REGISTRY.md to get current state
+1. Read `.workspace/tasks/INDEX.md` to get current state
 2. Determine appropriate next action
 
 ### 2. Auto-Execute

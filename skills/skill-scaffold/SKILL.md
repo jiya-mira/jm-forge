@@ -55,7 +55,7 @@ skills/<skill-name>/
 After creation:
 1. **Development**: Skill is created directly in `skills/<skill-name>/` (meta-source)
 2. **Publish**: Use `uv run scripts/install-workspaces-skills.py --all` to deploy to target directories
-3. **Update PROJECT-MAP/**: If `PROJECT-MAP/` exists, append new skill node to `domains.json` or `assets.json` (type: Domain or Asset) and add relationship edges
+3. **Update .workspace/project-map/**: If `.workspace/project-map/` exists, append new skill node to `domains.json` or `assets.json` (type: Domain or Asset) and add relationship edges
 
 **Development/Publish Flow:**
 ```
@@ -75,4 +75,4 @@ uv run scripts/install-workspaces-skills.py --all    ← Publish via install scr
 
 ## Notes
 
-- For updating existing PROJECT-MAP/, use `jm-forge:sync`
+- For updating existing .workspace/project-map/, use `jm-forge:sync`

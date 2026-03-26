@@ -74,7 +74,16 @@ When this skill is invoked, the Agent should:
 ```markdown
 ## jm-forge Workflow
 
-This project uses a **Discuss → Plan → Execute** workflow. See `.planning/workflow-framework.md` for details.
+This project uses a **Discuss → Plan → Execute** workflow. See `workflow-framework.md` for details.
+
+### Runtime Workspace
+- Runtime artifacts are stored under `.workspace/`
+- Key directories:
+  - `.workspace/tasks/`
+  - `.workspace/project-map/`
+  - `.workspace/resource-map/`
+  - `.workspace/exp-map/`
+- Git strategy recommendation: default ignore `.workspace/`, but allow team-level override if shared artifacts are needed.
 
 ### Task Lifecycle
 | State | Description |

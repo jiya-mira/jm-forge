@@ -27,20 +27,22 @@ $jmf-execute 3
 
 ## Pre-conditions
 
-- Task must exist in `.planning/TASK-REGISTRY.md`
+- Task must exist in `.workspace/tasks/INDEX.md`
 - Task state must be `Pending`, `Active`, or manually set
 
 ## Behavior
 
 ### 1. Setup
-1. Read TASK-REGISTRY.md, confirm task exists
-2. Set task state to `Active`
+1. Read `.workspace/tasks/INDEX.md`, confirm task exists
+2. Set task state to `Active` (and `StateMark` to `🔄`)
 3. Present **Task #\<id\>**: **\<task-name\>** header when starting execute
-4. Read plan from `.planning/<task-name>/plan.md`
+4. Read plan from `.workspace/tasks/<id>-<task-name>/plan.md`
 
 ### 2. Execute Steps
 
 Execute steps sequentially, following the dependency order in Plan.
+
+Before closing a task, `summary.md` generation and persistence is mandatory.
 
 **Checkpoint reporting format:**
 ```
@@ -67,13 +69,13 @@ On checkpoint failure:
 
 | Final State | Condition |
 |-------------|-----------|
-| `Completed` | All steps + all checkpoints verified |
+| `Completed` | All steps + all checkpoints verified + `summary.md` generated and persisted |
 | `Failed` | Checkpoint failed, cannot continue |
 | `Pending` | Blocked by Dependon, can resume |
 
 ### 6. Document
 
-Write to `.planning/<task-name>/execute.md` using the following template:
+Write to `.workspace/tasks/<id>-<task-name>/execute.md` using the following template:
 
 ```markdown
 # Execute — Task #<id>: <task-name>
@@ -108,6 +110,47 @@ Evidence: <what was observed>
 <Summary of whether task met its acceptance criteria defined in Discuss>
 ```
 
+### 7. Mandatory Summary Gate (Before Close)
+
+When all implementation checkpoints pass, do not close immediately.
+
+1. Generate `.workspace/tasks/<id>-<task-name>/summary.md` using the template below.
+2. Persist it to disk.
+3. Validate required sections are non-empty.
+4. Only then mark task as `Completed`.
+
+If generation or persistence fails:
+
+- Close is blocked.
+- Keep task as `Active` (or `Pending` if user pauses).
+- Record failure and next action in `execute.md`.
+
+### Summary template
+
+```md
+# Summary — <task-name>
+
+**Task ID:** <id>
+**Date:** <YYYY-MM-DD>
+**Status:** Completed
+
+---
+
+## Goal
+What this task aimed to achieve.
+
+## Changes
+- Key change 1
+- Key change 2
+
+## Verification
+- Checkpoint/result 1
+- Checkpoint/result 2
+
+## Risks / Follow-ups
+- Remaining risk or explicit none.
+```
+
 ## Exit Points
 
 User can pause execution at any time. Task state becomes `Pending` and can be resumed later.
@@ -130,3 +173,4 @@ User can pause execution at any time. Task state becomes `Pending` and can be re
 
 - Input is solely the plan output — no other sources consulted
 - Checkpoint failures use same protocol as Plan blocking issues
+- Historical tasks without `summary.md` are tolerated as legacy. New closures must pass the summary gate.

@@ -1,0 +1,9 @@
+{
+  "id": "node-<slug>",
+  "name": "<name>",
+  "type": "Domain|EntryPoint|Asset|Artifact|Abstraction|Unknown",
+  "path": "<relative-path>",
+  "summary": "<one-line-summary>",
+  "children_ids": ["<child-node-id>"],
+  "doc_ref": "<detail-doc-or-json-ref>"
+}

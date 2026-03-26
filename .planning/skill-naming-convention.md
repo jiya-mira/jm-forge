@@ -48,8 +48,8 @@ Task management skills follow `jm-forge:<action>` pattern:
 ## 2. Task Naming
 
 ### Planning Artifacts
-- Task directory under `.planning/`: **kebab-case** matching the task identifier
-- Example: `.planning/workflow-framework/`
+- Task directory under `.workspace/tasks/`: **<id>-kebab-case**
+- Example: `.workspace/tasks/001-workflow-framework/`
 
 ### Plan Documents
 - `plan.md` — all lowercase, no separator

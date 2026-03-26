@@ -1,0 +1,13 @@
+{
+  "id": "<resource-id>",
+  "name": "<resource-name>",
+  "category": "infrastructure|document|organization|human|financial|equipment|api|repository|secret|other",
+  "description": "<one-line-description>",
+  "controllable": false,
+  "safety": {
+    "level": "none|low|medium|high-caution|restricted"
+  },
+  "attributes": {},
+  "relationships": [],
+  "notes": ""
+}

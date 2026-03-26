@@ -7,7 +7,17 @@ description: Update an existing PROJECT-MAP. Use --force-refresh for full rebuil
 
 ## Purpose
 
-Update an existing `PROJECT-MAP/` context map. Handles incremental maintenance and force refresh.
+Update an existing `.workspace/project-map/` context map. Handles incremental maintenance and force refresh.
+
+## Map Boundary Charter
+
+- `project-map` focuses on project-native files/modules and their layered `tree + graph` relations.
+- `.workspace` runtime artifacts are not primary `project-map` recording targets.
+- `resource-map` and `project-map` keep a thin relationship: design ideas may be shared, but data ownership is separate.
+
+## Templates
+
+- `templates/project-map-sync-merge-rules.md`
 
 ## Usage
 
@@ -22,13 +32,13 @@ $jmf-sync [--force-refresh] [--stale-threshold <days>]
 
 ## Pre-conditions
 
-- `PROJECT-MAP/` must already exist (use `jmf-init` first if it does not)
+- `.workspace/project-map/` must already exist (use `jmf-init` first if it does not)
 
 ## Behavior
 
-### 1. Check PROJECT-MAP/ exists
+### 1. Check .workspace/project-map/ exists
 
-If `PROJECT-MAP/` does not exist: report "PROJECT-MAP/ not found. Run `jmf-init` first."
+If `.workspace/project-map/` does not exist: report ".workspace/project-map/ not found. Run `jmf-init` first."
 
 ### 2. Determine mode
 
@@ -54,6 +64,9 @@ If `PROJECT-MAP/` does not exist: report "PROJECT-MAP/ not found. Run `jmf-init`
 | Node type unclear | Set `type: Unknown`, confidence: low |
 | Relationship unclear | Set `type: unknown-type` |
 
+Template-first rule:
+- Apply merge constraints from `templates/project-map-sync-merge-rules.md`
+
 ### 4. Update `lastUpdated`
 
 Set `project.json.lastUpdated` to current date.
@@ -68,9 +81,9 @@ Report:
 ### 6. Resources
 
 **Check for resources:**
-- During sync, check if `RESOURCE-MAP/resources.json` exists
-- If exists, include resources in the sync scope
-- Resources should appear in `domains.json` as `resource` nodes
+- During sync, check if `.workspace/resource-map/resources.json` exists
+- If exists, include lightweight resource references only when they help project navigation
+- Resource details remain in `.workspace/resource-map/resources.json`
 
 **Resource scan:**
 - After sync, ask user: "是否要重新扫描项目发现新资源？"
@@ -79,11 +92,11 @@ Report:
 - Scan is non-destructive — only suggests, never auto-registers
 
 **Sync behavior:**
-- If resources changed, update the corresponding nodes in domains.json
+- If resources changed, update related lightweight references only where needed
 - If new resources added via `jmf-resource add`, include in next sync
 
 ## Notes
 
 - This skill is agent-agnostic — does not depend on Claude Code or any specific agent platform
-- For first-time setup, use `jmf-init` — this skill requires an existing PROJECT-MAP/
+- For first-time setup, use `jmf-init` — this skill requires an existing .workspace/project-map/
 - Maintenance convention: run this after creating/deleting/renaming meaningful project elements

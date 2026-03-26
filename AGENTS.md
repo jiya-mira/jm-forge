@@ -38,13 +38,17 @@ forge/
 │   ├── jmf-bootstrap/
 │   ├── skill-scaffold/
 │   └── workflow-execute/
-├── PROJECT-MAP/                   # Project context map (created by jmf-init)
-├── .planning/                     # Task planning directories
+├── .workspace/                    # Runtime artifacts root (tasks/maps/exp)
+│   ├── tasks/
+│   ├── project-map/
+│   ├── resource-map/
+│   └── exp-map/
+├── planning/                      # Workflow entry docs (registry/framework docs)
 ├── AGENTS.md                      # This file
 └── README.md                      # Project documentation
 ```
 
-**Note:** `RESOURCE-MAP/` is project-local (gitignored) — managed by `jmf-resource` but not part of framework distribution.
+**Note:** `.workspace/` is runtime data. Default recommendation is gitignore; teams may override this and commit selected artifacts if collaboration needs it.
 
 **Skill naming conventions:**
 - `skill-scaffold` — internal framework build-time helper (no prefix)
@@ -121,7 +125,7 @@ When adding a new skill:
 
 ## When to Use the jm-forge Workflow
 
-This project uses a **Discuss → Plan → Execute (D→P→E)** workflow for managing tasks. See `.planning/workflow-framework.md` for details.
+This project uses a **Discuss → Plan → Execute (D→P→E)** workflow for managing tasks. See `workflow-framework.md` for details.
 
 ### Task Unit Definition
 
@@ -158,8 +162,8 @@ When a user expresses intent that satisfies all four conditions above, the workf
 | `jmf-list` | List all tasks |
 | `jmf-status` | Show task details |
 | `jmf-abandon` | Mark task as abandoned |
-| `jmf-init` | Analyze project and build PROJECT-MAP |
-| `jmf-sync` | Update existing PROJECT-MAP |
+| `jmf-init` | Analyze project and build project map |
+| `jmf-sync` | Update existing project map |
 | `jmf-resource` | Manage project resources (add/list/remove) |
 | `workflow-execute` | Thin router for the D→P→E workflow entry |
 
@@ -177,15 +181,15 @@ Entry points for navigating this project:
 
 | Document | Role |
 |----------|------|
-| `TASK-REGISTRY.md` | Central task list — all tasks with IDs, states, and phase directories |
+| `.workspace/tasks/INDEX.md` | Central task list — all tasks with IDs, states, dependencies, and phase directories |
 | `AGENTS.md` | This file — entry point for Agents, skill registry, and conventions |
-| `.planning/workflow-framework.md` | Discuss→Plan→Execute workflow definition |
-| `.planning/workflow-framework/discuss.md` | Workflow Discuss phase doc |
-| `.planning/workflow-framework/references.md` | Workflow reference materials |
+| `workflow-framework.md` | Discuss→Plan→Execute workflow definition |
+| `.workspace/tasks/001-workflow-framework/discuss.md` | Workflow Discuss phase doc |
+| `.workspace/tasks/001-workflow-framework/references.md` | Workflow reference materials |
 
 ### Phase Directories
 
-Each task has its own phase directory under `.planning/<task-name>/`:
+Each task has its own phase directory under `.workspace/tasks/<id>-<task-name>/`:
 
 | Phase Doc | Source | Description |
 |-----------|--------|-------------|
@@ -200,23 +204,22 @@ All skills live in `.claude/skills/<skill-name>/SKILL.md` and `skills/<skill-nam
 
 ### Templates
 
-Phase templates under `.planning/templates/`:
-`discuss.md`, `discuss-log.md`, `plan.md`, `execute.md`
+Phase templates live with skill-local templates (for example `skills/jmf-new/templates/`).
 
 ### Navigation
 
 ```
-TASK-REGISTRY.md → .planning/<task-name>/discuss.md → plan.md → execute.md
+.workspace/tasks/INDEX.md → .workspace/tasks/<id>-<task-name>/discuss.md → plan.md → execute.md
 AGENTS.md → skills + phase docs
 ```
 
 ---
 
-## PROJECT-MAP Maintenance
+## Project Map Maintenance
 
-`PROJECT-MAP/` stores the project context map. Keep it accurate:
+`.workspace/project-map/` stores the project context map. Keep it accurate:
 
-1. **When you create, delete, or rename a meaningful project element, update PROJECT-MAP/**
+1. **When you create, delete, or rename a meaningful project element, update .workspace/project-map/**
    - `jmf-new` and `skill-scaffold` do this automatically
    - For other changes: run `jmf-sync` or manually update relevant JSON files
 
@@ -227,11 +230,22 @@ AGENTS.md → skills + phase docs
 3. **Use `jmf-init` only for first-time setup**
    - Subsequent updates use `jmf-sync`
 
-## RESOURCE-MAP (Project-Local)
+## Resource Map (Project-Local)
 
-`RESOURCE-MAP/` is project-local and gitignored — each project manages its own resources. Use `jmf-resource` to manage resource entities:
-- Add/list/remove resources tracked in the project's `RESOURCE-MAP/resources.json`
+`.workspace/resource-map/` is project-local and gitignored — each project manages its own resources. Use `jmf-resource` to manage resource entities:
+- Add/list/remove resources tracked in the project's `.workspace/resource-map/resources.json`
 - Run `jmf-resource scan` to auto-discover resources
+
+## Map Boundary Charter
+
+- `project-map` records project-native structure and relations with a layered `tree + graph` model.
+- `.workspace` runtime artifacts are workflow data and are not primary `project-map` recording targets.
+- `resource-map` is the source of truth for resource entities and lightweight relations.
+- `domains.json`, `entries.json`, `assets.json`, `relationships.json` remain the canonical graph-layer records in `project-map`.
+- `resource-map` only borrows design ideas from `project-map`; keep relationship thin and data ownership separate.
+- Canonical charter references:
+  - `.workspace/project-map/INDEX.md`
+  - `.workspace/resource-map/INDEX.md`
 
 ---
 

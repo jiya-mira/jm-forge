@@ -1,13 +1,13 @@
 ---
 name: jmf-list
-description: List all tasks from TASK-REGISTRY.md with their IDs, states, and dependencies.
+description: List all tasks from .workspace/tasks/INDEX.md with their IDs, states, and dependencies.
 ---
 
 # Skill: jmf-list
 
 ## Purpose
 
-Read `.planning/TASK-REGISTRY.md` and display all tasks in a human-readable format.
+Read `.workspace/tasks/INDEX.md` and display all tasks in a human-readable format.
 
 ## Usage
 
@@ -30,12 +30,12 @@ Displays:
 
 ## Implementation
 
-1. Read `.planning/TASK-REGISTRY.md`
+1. Read `.workspace/tasks/INDEX.md`
 2. Parse the task table
 3. Display in readable format with state indicators
 4. Show summary counts
 
 ## Notes
 
-- If TASK-REGISTRY.md does not exist, report that no tasks have been created yet
+- If `.workspace/tasks/INDEX.md` does not exist, report that no tasks have been created yet
 - State indicators: New (🆕), Discussing (💬), Planning (📋), Pending (⏳), Active (🔄), Completed (✅), Failed (❌), Abandoned (🚫)

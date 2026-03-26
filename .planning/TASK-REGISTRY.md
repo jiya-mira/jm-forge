@@ -46,6 +46,9 @@ Documents reference their sources as follows:
 | 24 | manual-mode-prompt-ux | Completed | — | 手动模式或半自动模式下每次任务回报时的用户提示问题 |
 | 25 | exp-system | Completed | 24 | 构建经验体系；以racobit实战案例作为分析素材 |
 | 26 | non-jmf-skill-replanning | Completed | — | 重新规划和调整非 jmf-* 命名的 skill |
+| 27 | jmf-exp-racobit-analysis-issues | Completed | — | jmf-exp 在 racobit workspace 的任务分析尝试中暴露的问题梳理 |
+| 28 | jmf-skill-output-structure-naming-adjustment | Completed | — | jmf系列skill的输出产物的目录结构和命名方式调整 |
+| 29 | jmf-output-index-and-map-spec-optimization | Completed | — | jmf系列产出物索引编写规范与map系列编写规范优化 |
 
 ---
 
@@ -77,6 +80,6 @@ New → Discussing → Planning → Pending → Active → Completed
 
 When a user proposes a new task:
 1. Agent adds a row to this registry with the next available ID
-2. Agent creates `.planning/<task-name>/` directory
+2. Agent creates `.workspace/tasks/<id>-<task-name>/` directory
 3. State is set to New
 4. Dependon is set if applicable

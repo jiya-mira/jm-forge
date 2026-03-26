@@ -27,15 +27,15 @@ $jmf-plan 3
 
 ## Pre-conditions
 
-- Task must exist in `.planning/TASK-REGISTRY.md`
+- Task must exist in `.workspace/tasks/INDEX.md`
 - Task state must be `Planning` or previously `Discussing`
 - Discuss phase must be complete (all open issues non-blocking)
 
 ## Behavior
 
 ### 1. Setup
-1. Read TASK-REGISTRY.md, confirm task exists
-2. Read Discuss output from `.planning/<task-name>/discuss.md`
+1. Read `.workspace/tasks/INDEX.md`, confirm task exists
+2. Read Discuss output from `.workspace/tasks/<id>-<task-name>/discuss.md`
 3. Confirm all open issues are non-blocking before proceeding
 
 ### 2. Conduct Plan Phase
@@ -62,7 +62,7 @@ If a previously unknown blocking issue is encountered:
 
 ### 4. Document
 
-Write to `.planning/<task-name>/plan.md` using the following template:
+Write to `.workspace/tasks/<id>-<task-name>/plan.md` using the following template:
 
 ```markdown
 # Plan — <task-name>
@@ -106,7 +106,7 @@ Write to `.planning/<task-name>/plan.md` using the following template:
 ### 5. Completion
 
 When plan is complete:
-- Update TASK-REGISTRY.md state to `Pending`
+- Update `.workspace/tasks/INDEX.md` state to `Pending` (and `StateMark` to `⏳`)
 - Present plan summary to user with **Task #\<id\>**: **\<task-name\>** prominently displayed
 - Offer to proceed to Execute phase
 

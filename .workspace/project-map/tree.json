@@ -1,0 +1,44 @@
+{
+  // SCHEMA: tree.json
+  // Layered tree navigation nodes for project-map traversal.
+
+  "$schema": "jm-forge:project-map:v1",
+  "nodes": [
+    {
+      "id": "tree-root",
+      "name": "project-root",
+      "type": "TreeRoot",
+      "path": ".",
+      "summary": "Project-native navigation root.",
+      "children_ids": ["tree-layer-entries", "tree-layer-domains", "tree-layer-assets"],
+      "doc_ref": "project.json"
+    },
+    {
+      "id": "tree-layer-entries",
+      "name": "entries-layer",
+      "type": "TreeLayer",
+      "path": ".workspace/project-map/entries.json",
+      "summary": "Entry-point nodes for top-level traversal.",
+      "children_ids": ["entry-agents", "entry-workflow", "entry-skills-manifest"],
+      "doc_ref": "entries.json"
+    },
+    {
+      "id": "tree-layer-domains",
+      "name": "domains-layer",
+      "type": "TreeLayer",
+      "path": ".workspace/project-map/domains.json",
+      "summary": "Domain/module nodes for project structure.",
+      "children_ids": ["domain-task-management", "domain-workflow-framework", "task-30", "task-31"],
+      "doc_ref": "domains.json"
+    },
+    {
+      "id": "tree-layer-assets",
+      "name": "assets-layer",
+      "type": "TreeLayer",
+      "path": ".workspace/project-map/assets.json",
+      "summary": "Asset/config nodes used by project navigation.",
+      "children_ids": ["asset-skill-naming", "asset-templates", "asset-exp-map"],
+      "doc_ref": "assets.json"
+    }
+  ]
+}

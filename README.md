@@ -20,6 +20,16 @@ or .opencode/skills/). These are JMF Standard skills that use a
 Discuss→Plan→Execute workflow.
 ```
 
+Recommended runtime data layout:
+- `.workspace/tasks/` for task phase artifacts
+- `.workspace/project-map/` for project map
+- `.workspace/resource-map/` for resource inventory
+- `.workspace/exp-map/` for experience records
+
+Git strategy recommendation:
+- Default suggestion: add `.workspace/` to `.gitignore`
+- If your team needs to share these artifacts, you may choose to commit parts of `.workspace/`
+
 ### Installation Verification / 安装验证
 
 If your Agent successfully executes this, it has passed the **Baseline Intelligence Test**. You can now use the framework.
@@ -52,7 +62,7 @@ Instead of blindly scanning files, agents consult a structured map to understand
 Agent 不再盲目扫描文件，而是查阅结构化地图以即时理解项目。
 
 ```
-PROJECT-MAP/
+.workspace/project-map/
 ├── project.json       # Metadata / 元数据
 ├── domains.json       # Domain structure / 领域结构
 └── SUMMARY.md        # Human-readable navigation / 导航指南

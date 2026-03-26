@@ -1,0 +1,7 @@
+{
+  "from": "<node-id>",
+  "to": "<node-id>",
+  "type": "depends-on|implements|contains|references|builds-on|delivers|unknown-type",
+  "confidence": "high|medium|low",
+  "note": "<relation-note>"
+}

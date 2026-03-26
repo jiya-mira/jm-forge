@@ -9,7 +9,18 @@ description: Manage project resources (entities, assets, equipment, organization
 
 Manage project resources — entities, assets, equipment, organizations, or any valuable resources the project works with, regardless of whether they exist inside or outside the project directory.
 
-Resources are stored in `RESOURCE-MAP/resources.json`.
+Resources are stored in `.workspace/resource-map/resources.json`.
+
+## Map Boundary Charter
+
+- `resource-map` is the source of truth for resource entities and lightweight relationships.
+- `resource-map` borrows layered design ideas from `project-map`, but does not depend on `project-map` structure.
+- `project-map` may hold minimal references for navigation only; resource details stay in `resource-map`.
+
+## Templates
+
+- `templates/resource-entry.template.json`
+- `templates/resource-map-lightweight-principles.md`
 
 ## Usage
 
@@ -44,7 +55,8 @@ Interactive flow to add a new resource.
 9. `notes` — Additional notes
 
 **Behavior:**
-- Reads current `RESOURCE-MAP/resources.json`
+- Reads current `.workspace/resource-map/resources.json`
+- Shapes new resource entries using `templates/resource-entry.template.json`
 - Appends new resource
 - Writes back to file
 - Confirms with user
@@ -90,12 +102,13 @@ Scan the project directory to discover potential resources that may already be d
 2. Agent identifies potential resources using own judgment (no fixed file list)
 3. Agent presents found candidates to user with evidence (which file/pattern suggested each)
 4. User confirms which resources to register
-5. Confirmed resources are appended to `RESOURCE-MAP/resources.json`
+5. Confirmed resources are appended to `.workspace/resource-map/resources.json`
 
 **Important:**
 - Scan is **non-destructive**: it only suggests, never auto-registers
 - User confirmation is **required** before any resource is added
 - Agent uses project context to decide what to scan (docker-compose.yml, contacts.md, README, etc.)
+- Keep structure aligned with `templates/resource-map-lightweight-principles.md`
 
 **Example scan output:**
 ```
@@ -118,13 +131,13 @@ Found 3 potential resources:
 
 ## File Location
 
-`RESOURCE-MAP/resources.json`
+`.workspace/resource-map/resources.json`
 
 ## Installation Notes
 
-- RESOURCE-MAP/resources.json is **project data**, not framework code
-- Do NOT copy RESOURCE-MAP/ when installing skills to another project
-- The skill will auto-create RESOURCE-MAP/resources.json when first used
+- .workspace/resource-map/resources.json is **project data**, not framework code
+- Do NOT copy .workspace/resource-map/ when installing skills to another project
+- The skill will auto-create .workspace/resource-map/resources.json when first used
 
 ## Notes
 

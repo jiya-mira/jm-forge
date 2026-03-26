@@ -30,7 +30,7 @@ $jmf-abandon 3 --reason "用户改变主意"
 ## Behavior
 
 1. **Confirm with user**: Ask for confirmation before marking as Abandoned
-2. **Update TASK-REGISTRY.md**: Set state to `Abandoned`
+2. **Update `.workspace/tasks/INDEX.md`**: Set state to `Abandoned` and `StateMark` to `🚫`
 3. **Update Notes column**: Add abandonment reason if provided
 
 ## Important

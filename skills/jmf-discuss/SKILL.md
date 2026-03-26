@@ -27,15 +27,15 @@ $jmf-discuss 3
 
 ## Pre-conditions
 
-- Task must exist in `.planning/TASK-REGISTRY.md`
+- Task must exist in `.workspace/tasks/INDEX.md`
 - Task state must be `New`, `Discussing`, or manually set to `Discussing`
 
 ## Behavior
 
 ### 1. Setup
-1. Read `PROJECT-MAP/SUMMARY.md` (and relevant JSON files on demand) to understand project context
-2. **Check freshness**: If `PROJECT-MAP/project.json.lastUpdated` is older than 7 days, OR any node references a non-existent path: prompt "PROJECT-MAP may be stale. Run `jmf-sync` to update?"
-3. Read TASK-REGISTRY.md, confirm task exists
+1. Read `.workspace/project-map/SUMMARY.md` (and relevant JSON files on demand) to understand project context
+2. **Check freshness**: If `.workspace/project-map/project.json.lastUpdated` is older than 7 days, OR any node references a non-existent path: prompt "PROJECT-MAP may be stale. Run `jmf-sync` to update?"
+3. Read `.workspace/tasks/INDEX.md`, confirm task exists
 4. Set task state to `Discussing`
 5. Read existing discuss.md and discuss-log.md if they exist (resume scenario)
 6. If this is a fresh start, create the task directory structure
@@ -58,7 +58,7 @@ Use structured prompting with these elements:
 
 ### 3. Document
 
-After each key decision, write to `.planning/<task-name>/discuss.md` and append to `discuss-log.md`.
+After each key decision, write to `.workspace/tasks/<id>-<task-name>/discuss.md` and append to `discuss-log.md`.
 
 **Template for `discuss.md`:**
 
@@ -140,7 +140,7 @@ id: <task-id>
 ### 4. Completion
 
 When all open issues are non-blocking:
-- Update TASK-REGISTRY.md state to `Planning`
+- Update `.workspace/tasks/INDEX.md` state to `Planning` (and `StateMark` to `📋`)
 - Present summary to user with **Task #\<id\>**: **\<task-name\>** prominently displayed
 - Offer to proceed to Plan phase
 
@@ -190,4 +190,3 @@ When iterating, append to `discuss-log.md`:
 
 - Agent leads with structured prompting; user assists via choices
 - User controls iteration — unlimited rounds before crossing to Plan
-

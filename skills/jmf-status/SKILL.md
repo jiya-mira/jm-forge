@@ -36,11 +36,11 @@ Displays:
 
 ## Error Handling
 
-- If task ID not found in TASK-REGISTRY.md: report error
+- If task ID not found in `.workspace/tasks/INDEX.md`: report error
 - If phase file missing: note that phase has not been started
 
 ## Notes
 
 - Task ID is required as argument
-- Always reads from `.planning/TASK-REGISTRY.md` for current state
-- Phase files read from `.planning/<task-name>/`
+- Always reads from `.workspace/tasks/INDEX.md` for current state
+- Phase files read from `.workspace/tasks/<id>-<task-name>/`
