@@ -44,7 +44,10 @@ $jmf-new another-task --dependon 3
    - `{{TASK_NAME}}` -> task name
    - `{{DATE}}` -> creation date in `YYYY-MM-DD`
 
-5. **Update .workspace/project-map/**: If `.workspace/project-map/` exists, append new task node to `domains.json` and add relationship edge if parent domain exists
+5. **Do NOT auto-update `.workspace/project-map/` for task runtime artifacts**:
+   - Task directories under `.workspace/tasks/` belong to workflow runtime data.
+   - `project-map` focuses on project-native tree/graph records and should not auto-absorb task runtime nodes.
+   - If a task introduces project-native architectural entities that truly need mapping, update `project-map` explicitly in the corresponding execution phase.
 
 ## Output
 
@@ -63,3 +66,4 @@ $jmf-new another-task --dependon 3
 - State is always `New` when created via this skill
 - To move a task from New to Discussing, use `jmf-discuss`
 - Automatically initializes `.workspace/tasks/INDEX.md` if it doesn't exist
+- This skill writes task runtime records to `.workspace/tasks/` and does not treat them as primary `project-map` nodes

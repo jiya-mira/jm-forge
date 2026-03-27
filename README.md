@@ -6,18 +6,25 @@
 
 ## Getting Started / 快速上手
 
-The simplest way to install jm-forge is to let your Agent **bootstrap itself**.
-安装 jm-forge 最简单的方法是让您的 Agent **自我引导**。
+The primary installation path is: copy the official prompt and let your Agent bootstrap jm-forge end-to-end.
+推荐的安装主路径是：复制官方提示词，让您的 Agent 端到端自举安装 jm-forge。
 
 **Copy and paste the following prompt to your Agent:**
 **复制并粘贴以下提示词给您的 Agent：**
 
 ```text
-Clone https://github.com/jiya-mira/jm-forge to a temporary directory.
-Copy all folders starting with 'jmf-' from the 'skills/' directory into
-my local workspace's skill directory (e.g., .gemini/skills/, .claude/skills/,
-or .opencode/skills/). These are JMF Standard skills that use a 
-Discuss→Plan→Execute workflow.
+Install jm-forge skills for my current workspace.
+
+Steps:
+1. Clone https://github.com/jiya-mira/jm-forge into a temporary directory.
+2. Copy all skill folders starting with `jmf-` from `skills/` into my local Agent skill directory
+   (for example: `.gemini/skills/`, `.claude/skills/`, or `.opencode/skills/`).
+3. Keep existing local files unless replacement is required for installation consistency.
+4. After installation, update `AGENTS.md` in my workspace and add a short "jm-forge usage contract" section that includes:
+   - workflow entry commands (`$jmf-new`, `$jmf-discuss`, `$jmf-plan`, `$jmf-execute`)
+   - task state progression (`New -> Discussing -> Planning -> Pending -> Active -> Completed`)
+   - task index path (`.workspace/tasks/INDEX.md`) as the task source of truth
+5. Report what was installed and what was added/updated in `AGENTS.md`.
 ```
 
 Recommended runtime data layout:
@@ -32,8 +39,16 @@ Git strategy recommendation:
 
 ### Installation Verification / 安装验证
 
-If your Agent successfully executes this, it has passed the **Baseline Intelligence Test**. You can now use the framework.
-如果您的 Agent 成功执行了此操作，说明它已通过**基准智能测试**。您现在可以使用该框架了。
+Installation is considered successful only if the Agent can complete both checks:
+仅当 Agent 能同时完成以下两项检查时，才视为安装成功：
+
+1. Skills are installed and discoverable in the target skill directory.
+   技能已安装到目标目录，且可被 Agent 正常发现。
+2. `AGENTS.md` contains the required jm-forge usage contract entries.
+   `AGENTS.md` 已写入要求的 jm-forge 使用约定条目。
+
+If an Agent cannot complete these checks under explicit instructions, treat it as not yet suitable for the current jm-forge workflow baseline.
+如果 Agent 在明确指令下仍无法完成上述检查，应视为暂不满足当前 jm-forge 工作流的基线要求。
 
 ---
 
@@ -72,8 +87,8 @@ Use command: `jmf-init` (or `jmf-sync` to update).
 
 ### Self-Bootstrapping / 自举
 
-The project structure itself is the documentation. Every skill is defined in a `SKILL.md` file that the Agent can read to understand how to use it.
-项目结构本身即文档。每个技能都在 `SKILL.md` 中定义，Agent 可以通过阅读它来理解如何使用。
+The project structure is executable documentation. Each skill defines its own operating contract in `SKILL.md`, and installation should also leave a minimal jm-forge usage contract in `AGENTS.md`.
+项目结构是可执行文档。每个技能在 `SKILL.md` 中定义自身操作约定，同时安装流程应在 `AGENTS.md` 中留下最小 jm-forge 使用约定。
 
 ---
 
@@ -121,4 +136,4 @@ The framework is **platform-independent**. It only requires an Agent capable of 
 We welcome contributions via Issues. PRs are reviewed conservatively to maintain the self-bootstrapping integrity.
 欢迎通过 Issue 提交贡献。为保持自举完整性，PR 审核将较为审慎。
 
-*Last updated: 2026-03-24*
+*Last updated: 2026-03-27*

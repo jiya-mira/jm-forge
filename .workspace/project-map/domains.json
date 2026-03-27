@@ -2,6 +2,7 @@
   // SCHEMA: domains.json
   // Domain/module nodes for jm-forge framework
 
+{
   "$schema": "jm-forge:project-map:v1",
   "nodes": [
     {
@@ -10,8 +11,15 @@
       "type": "Domain",
       "path": "skills/jmf-bootstrap/",
       "description": "Ensures uv is installed and usable. The entry skill for new environments.",
-      "tags": ["bootstrap", "environment", "uv"],
-      "relationships": ["skill-scaffold", "AGENTS"]
+      "tags": [
+        "bootstrap",
+        "environment",
+        "uv"
+      ],
+      "relationships": [
+        "skill-scaffold",
+        "AGENTS"
+      ]
     },
     {
       "id": "domain-jmf-exp",
@@ -19,8 +27,16 @@
       "type": "Domain",
       "path": "skills/jmf-exp/",
       "description": "Extracts structured experience records from real task attempts and task artifacts.",
-      "tags": ["experience", "exp", "reuse", "markdown"],
-      "relationships": ["domain-task-management", "AGENTS"]
+      "tags": [
+        "experience",
+        "exp",
+        "reuse",
+        "markdown"
+      ],
+      "relationships": [
+        "domain-task-management",
+        "AGENTS"
+      ]
     },
     {
       "id": "domain-skill-scaffold",
@@ -28,8 +44,13 @@
       "type": "Domain",
       "path": "skills/skill-scaffold/",
       "description": "Internal build-time helper for generating new skills. Uses Agent type decision flow.",
-      "tags": ["scaffolding", "skill-generation"],
-      "relationships": ["skill-scaffold-v2-plan"]
+      "tags": [
+        "scaffolding",
+        "skill-generation"
+      ],
+      "relationships": [
+        "skill-scaffold-v2-plan"
+      ]
     },
     {
       "id": "domain-workflow-execute",
@@ -37,8 +58,16 @@
       "type": "Domain",
       "path": "skills/workflow-execute/",
       "description": "Thin router / bootstrap entry that delegates workflow actions to jmf-* skills.",
-      "tags": ["workflow", "router", "bootstrap", "thin-entry"],
-      "relationships": ["domain-task-management", "AGENTS"]
+      "tags": [
+        "workflow",
+        "router",
+        "bootstrap",
+        "thin-entry"
+      ],
+      "relationships": [
+        "domain-task-management",
+        "AGENTS"
+      ]
     },
     {
       "id": "domain-task-management",
@@ -46,8 +75,15 @@
       "type": "Domain",
       "path": ".claude/skills/",
       "description": "Core workflow skills: new, discuss, plan, execute, status, list, abandon, auto. Manages task lifecycle from idea to completion.",
-      "tags": ["workflow", "task-lifecycle", "D→P→E"],
-      "relationships": ["domain-workflow-framework", "AGENTS"]
+      "tags": [
+        "workflow",
+        "task-lifecycle",
+        "D→P→E"
+      ],
+      "relationships": [
+        "domain-workflow-framework",
+        "AGENTS"
+      ]
     },
     {
       "id": "domain-workflow-framework",
@@ -55,8 +91,14 @@
       "type": "Domain",
       "path": ".workspace/tasks/001-workflow-framework/",
       "description": "The Discuss→Plan→Execute workflow definition. Establishes conventions, phases, and task lifecycle.",
-      "tags": ["workflow", "conventions", "phases"],
-      "relationships": ["AGENTS"]
+      "tags": [
+        "workflow",
+        "conventions",
+        "phases"
+      ],
+      "relationships": [
+        "AGENTS"
+      ]
     },
     {
       "id": "domain-readme-finalize",
@@ -64,8 +106,14 @@
       "type": "Domain",
       "path": ".workspace/tasks/015-readme-finalize/",
       "description": "Finalize README before MVP publish: clarify Roadmap, Development Environment, Theoretical Foundations links.",
-      "tags": ["documentation", "readme", "mvp"],
-      "relationships": ["readme-redesign"]
+      "tags": [
+        "documentation",
+        "readme",
+        "mvp"
+      ],
+      "relationships": [
+        "readme-redesign"
+      ]
     },
     {
       "id": "domain-agent-install-scripts",
@@ -73,8 +121,16 @@
       "type": "Domain",
       "path": ".workspace/tasks/019-agent-install-scripts/",
       "description": "Unified installation scripts for Workspace Skills across multiple agents: Claude, Gemini, Codex.",
-      "tags": ["installation", "scripts", "workspace-skills", "multi-agent"],
-      "relationships": ["gemini-project-skill", "codex-project-skill"]
+      "tags": [
+        "installation",
+        "scripts",
+        "workspace-skills",
+        "multi-agent"
+      ],
+      "relationships": [
+        "gemini-project-skill",
+        "codex-project-skill"
+      ]
     },
     {
       "id": "domain-workflow-iteration-norms",
@@ -82,8 +138,16 @@
       "type": "Domain",
       "path": ".workspace/tasks/020-workflow-iteration-norms/",
       "description": "研究并规范化工作流迭代规范，结合理论、项目管理经验与Agent实践经验，解决阶段边界模糊问题。",
-      "tags": ["workflow", "iteration", "norms", "phase-boundaries"],
-      "relationships": ["domain-workflow-framework", "domain-task-management"]
+      "tags": [
+        "workflow",
+        "iteration",
+        "norms",
+        "phase-boundaries"
+      ],
+      "relationships": [
+        "domain-workflow-framework",
+        "domain-task-management"
+      ]
     },
     {
       "id": "domain-bootstrap-iteration-optimization",
@@ -91,8 +155,17 @@
       "type": "Domain",
       "path": ".workspace/tasks/021-bootstrap-iteration-optimization/",
       "description": "本系列skill开发的自举迭代流程的优化和调整。",
-      "tags": ["bootstrap", "iteration", "optimization", "self-development"],
-      "relationships": ["domain-jmf-bootstrap", "domain-skill-scaffold", "workflow-iteration-norms"]
+      "tags": [
+        "bootstrap",
+        "iteration",
+        "optimization",
+        "self-development"
+      ],
+      "relationships": [
+        "domain-jmf-bootstrap",
+        "domain-skill-scaffold",
+        "workflow-iteration-norms"
+      ]
     },
     {
       "id": "task-22",
@@ -100,8 +173,14 @@
       "type": "Domain",
       "path": ".workspace/tasks/022-analyze-jm-forge-new-skill-ux/",
       "description": "场景分析：基于racobit案例研究jmf-new的UX优化方向",
-      "tags": ["analysis", "ux", "jmf-new"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "analysis",
+        "ux",
+        "jmf-new"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-24",
@@ -109,8 +188,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/024-manual-mode-prompt-ux/",
       "description": "手动模式或半自动模式下每次任务回报时的用户提示问题",
-      "tags": ["ux", "prompting", "manual-mode", "semi-automatic"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "ux",
+        "prompting",
+        "manual-mode",
+        "semi-automatic"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-26",
@@ -118,8 +204,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/026-non-jmf-skill-replanning/",
       "description": "重新规划和调整非 jmf-* 命名的 skill。",
-      "tags": ["skills", "naming", "replanning", "standardization"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "skills",
+        "naming",
+        "replanning",
+        "standardization"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-27",
@@ -127,8 +220,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/027-jmf-exp-racobit-analysis-issues/",
       "description": "jmf-exp 在 racobit workspace 的任务分析尝试中暴露的问题梳理。",
-      "tags": ["jmf-exp", "racobit", "analysis", "issues"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "jmf-exp",
+        "racobit",
+        "analysis",
+        "issues"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-28",
@@ -136,8 +236,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/028-jmf-skill-output-structure-naming-adjustment/",
       "description": "jmf系列skill的输出产物的目录结构和命名方式调整。",
-      "tags": ["jmf", "output-artifacts", "directory-structure", "naming"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "jmf",
+        "output-artifacts",
+        "directory-structure",
+        "naming"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-29",
@@ -145,8 +252,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/029-jmf-output-index-and-map-spec-optimization/",
       "description": "jmf系列产出物索引编写规范与map系列编写规范优化。",
-      "tags": ["jmf", "output-artifacts", "index-spec", "map-spec"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "jmf",
+        "output-artifacts",
+        "index-spec",
+        "map-spec"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-30",
@@ -154,8 +268,16 @@
       "type": "Domain",
       "path": ".workspace/tasks/030-resource-map-project-map-scan-persist-optimization/",
       "description": "优化 resource-map 和 project-map 的扫描逻辑与落盘逻辑。",
-      "tags": ["resource-map", "project-map", "scan", "persistence", "optimization"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "resource-map",
+        "project-map",
+        "scan",
+        "persistence",
+        "optimization"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     },
     {
       "id": "task-31",
@@ -163,8 +285,15 @@
       "type": "Domain",
       "path": ".workspace/tasks/031-fix-missing-and-untracked-after-restructure/",
       "description": "修正并补全因目录结构大规模调整导致的文件缺失或无法正确跟踪问题。",
-      "tags": ["restructure", "missing-files", "tracking", "repair"],
-      "relationships": ["domain-task-management"]
+      "tags": [
+        "restructure",
+        "missing-files",
+        "tracking",
+        "repair"
+      ],
+      "relationships": [
+        "domain-task-management"
+      ]
     }
   ]
 }

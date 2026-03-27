@@ -57,6 +57,7 @@ Directory index for `.workspace/tasks/`.
 | 029 | `029-jmf-output-index-and-map-spec-optimization/` | Completed | ✅ | - | 优化 INDEX 规范与 map 级联初步实现。 | - |
 | 030 | `030-resource-map-project-map-scan-persist-optimization/` | Completed | ✅ | - | 优化 resource-map 与 project-map 的扫描与落盘逻辑。 | Execute+Summary completed 2026-03-27 |
 | 031 | `031-fix-missing-and-untracked-after-restructure/` | Completed | ✅ | - | 修正目录重构后文件缺失或跟踪异常问题。 | Execute+Summary completed 2026-03-27 |
+| 032 | `032-readme-getting-started-quickstart-prompt-optimization/` | Completed | ✅ | - | 优化 README Getting Started / 快速上手安装提示词。 | Execute+Summary completed 2026-03-27 |
 
 ## Navigation
 1. Find task by ID or summary in the catalog above.

@@ -2,6 +2,7 @@
   // SCHEMA: relationships.json
   // Typed relationship graph for jm-forge
 
+{
   "$schema": "jm-forge:project-map:v1",
   "edges": [
     {
